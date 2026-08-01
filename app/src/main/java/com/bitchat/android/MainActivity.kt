@@ -42,6 +42,7 @@ import com.bitchat.android.onboarding.PermissionManager
 import com.bitchat.android.onboarding.SplashScreen
 import com.bitchat.android.ui.ChatScreen
 import com.bitchat.android.ui.ChatViewModel
+import com.bitchat.android.ui.HomeScreen
 import com.bitchat.android.ui.OrientationAwareActivity
 import com.bitchat.android.ui.theme.ResQMeshTheme
 import com.bitchat.android.wifiaware.WifiAwareController
@@ -329,14 +330,19 @@ class MainActivity : OrientationAwareActivity() {
             }
 
             OnboardingState.CHECKING, OnboardingState.INITIALIZING, OnboardingState.COMPLETE -> {
-                // Set up back navigation handling for the chat screen
+                // Manage visual state for home vs chat
+                var showFullChat by remember { mutableStateOf(false) }
+
+                // Set up back navigation handling
                 val backCallback = object : OnBackPressedCallback(true) {
                     override fun handleOnBackPressed() {
-                        // Let ChatViewModel handle navigation state
-                        val handled = chatViewModel.handleBackPressed()
-                        if (!handled) {
-                            // If ChatViewModel doesn't handle it, disable this callback
-                            // and let the system handle it (which will exit the app)
+                        if (showFullChat) {
+                            val handled = chatViewModel.handleBackPressed()
+                            if (!handled) {
+                                showFullChat = false
+                            }
+                        } else {
+                            // If on Home, exit app
                             this.isEnabled = false
                             onBackPressedDispatcher.onBackPressed()
                             this.isEnabled = true
@@ -344,9 +350,17 @@ class MainActivity : OrientationAwareActivity() {
                     }
                 }
 
-                // Add the callback - this will be automatically removed when the activity is destroyed
+                // Add the callback
                 onBackPressedDispatcher.addCallback(this, backCallback)
-                ChatScreen(viewModel = chatViewModel)
+
+                if (showFullChat) {
+                    ChatScreen(viewModel = chatViewModel)
+                } else {
+                    HomeScreen(
+                        viewModel = chatViewModel,
+                        onOpenChat = { showFullChat = true }
+                    )
+                }
             }
             
             OnboardingState.ERROR -> {

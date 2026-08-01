@@ -918,6 +918,30 @@ class ChatViewModel(
     
     // MARK: - Message Sending
     
+    fun sendSOS(onAccepted: (Boolean) -> Unit = {}) {
+        val locationManager = com.bitchat.android.geohash.LocationChannelManager.getInstance(getApplication())
+        
+        // Get the most precise available geohash (usually the first one in the list)
+        val currentGeohash = locationManager.availableChannels.value.firstOrNull()?.geohash
+        
+        // Try to get a human-readable city name if reverse geocoding has completed
+        val cityName = locationManager.locationNames.value[com.bitchat.android.geohash.GeohashChannelLevel.CITY]
+        
+        val sosMessage = buildString {
+            append("[SOS] EMERGENCY ASSISTANCE REQUESTED!")
+            if (!cityName.isNullOrBlank()) {
+                append("\nCity: $cityName")
+            }
+            if (!currentGeohash.isNullOrBlank()) {
+                append("\nLocation: $currentGeohash")
+            } else {
+                append("\nLocation: GPS Unavailable")
+            }
+        }
+        
+        sendMessage(sosMessage, onAccepted)
+    }
+
     fun sendMessage(
         content: String,
         onAccepted: (Boolean) -> Unit = {}

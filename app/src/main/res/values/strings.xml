@@ -7,6 +7,15 @@
     <string name="cashu_redeem_web">Redeem on web</string>
     <string name="app_name">ResQMesh</string>
     <string name="splash_tagline">Offline Emergency Communication</string>
+    <string name="home_send_sos">SEND SOS</string>
+    <string name="home_mesh_status">Mesh Status</string>
+    <string name="home_internet_status">Internet Status</string>
+    <string name="home_status_connected">Connected</string>
+    <string name="home_status_disconnected">Disconnected</string>
+    <string name="home_status_online">Online</string>
+    <string name="home_status_offline">Offline</string>
+    <string name="home_recent_alerts">Recent Alerts</string>
+    <string name="home_open_chat">Open Messenger</string>
     <string name="app_short_name" translatable="false">RQM</string>
     <string name="permission_bluetooth_rationale">Bluetooth permission is required for peer-to-peer messaging without internet.</string>
     <string name="permission_location_rationale">Location permission is required to discover nearby devices via Bluetooth.</string>
