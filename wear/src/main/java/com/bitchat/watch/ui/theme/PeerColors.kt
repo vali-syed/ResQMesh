@@ -14,7 +14,7 @@ data class PeerColorStyle(
     }
 }
 
-fun colorForPeer(stableKey: String, palette: BitchatPalette): Color {
+fun colorForPeer(stableKey: String, palette: ResQMeshPalette): Color {
     var hash = 5381UL
     for (byte in stableKey.toByteArray()) {
         hash = ((hash shl 5) + hash) + byte.toUByte().toULong()

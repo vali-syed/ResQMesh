@@ -19,7 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.bitchat.android.R
-import com.bitchat.android.ui.theme.BitchatFontFamily
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
 import com.bitchat.android.ui.theme.LocalResQMeshPalette
 
 internal val PeerAvatarBadgeSize = 18.dp
@@ -52,7 +52,7 @@ internal fun PeerAvatar(
             Text(
                 text = name.trim().firstOrNull()?.uppercase() ?: "#",
                 style = MaterialTheme.typography.titleMedium.copy(
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontWeight = FontWeight.SemiBold
                 ),
                 color = color

@@ -73,7 +73,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.bitchat.android.ui.theme.BitchatFontFamily
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
 import com.bitchat.android.R
 import com.bitchat.android.core.ui.component.text.AnnotatedClickableText
 import com.bitchat.android.mesh.MeshService
@@ -539,7 +539,7 @@ fun MessageItem(
                     }
                 },
                 onLongPress = { onMessageLongPress?.invoke(message) },
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 color = colorScheme.onSurface,
             )
 
@@ -603,7 +603,7 @@ fun MessageItem(
                     } else {
                         Text(
                             text = stringResource(R.string.file_unavailable),
-                            fontFamily = BitchatFontFamily,
+                            fontFamily = ResQMeshFontFamily,
                             color = palette.textTertiary
                         )
                     }
@@ -652,7 +652,7 @@ fun MessageItem(
                     }
                 )
             },
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             softWrap = true,
             overflow = TextOverflow.Visible,
             style = ChatVisualTokens.SystemActionStyle.copy(
@@ -752,7 +752,7 @@ internal fun TextMessageLayout(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = MessageGrouping.SENDER_TOP_PADDING),
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 softWrap = false,
                 overflow = TextOverflow.Ellipsis,
                 style = MessageSenderTextStyle,
@@ -780,7 +780,7 @@ internal fun TextMessageLayout(
                 }
             },
             onLongPress = handleLongPress,
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             softWrap = true,
             overflow = TextOverflow.Visible,
             style = MessageBodyTextStyle.copy(color = colorScheme.onSurface),

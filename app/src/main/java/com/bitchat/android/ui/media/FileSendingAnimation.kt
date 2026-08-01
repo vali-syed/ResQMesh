@@ -30,7 +30,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import com.bitchat.android.ui.theme.BitchatFontFamily
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
 import com.bitchat.android.R
 import kotlinx.coroutines.delay
 
@@ -97,7 +97,7 @@ fun FileSendingAnimation(
                 androidx.compose.material3.Text(
                     text = revealedText,
                     style = MaterialTheme.typography.bodyMedium.copy(
-                        fontFamily = BitchatFontFamily,
+                        fontFamily = ResQMeshFontFamily,
                         color = Color.White
                     ),
                     modifier = Modifier.padding(end = 2.dp)
@@ -108,7 +108,7 @@ fun FileSendingAnimation(
                     androidx.compose.material3.Text(
                         text = stringResource(R.string.underscore),
                         style = MaterialTheme.typography.bodyMedium.copy(
-                            fontFamily = BitchatFontFamily,
+                            fontFamily = ResQMeshFontFamily,
                             color = Color.White
                         )
                     )
@@ -150,7 +150,7 @@ private fun FileProgressBars(
     androidx.compose.material3.Text(
         text = progressString,
         style = MaterialTheme.typography.bodySmall.copy(
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             color = Color(0xFF00FF7F) // Matrix green
         ),
         modifier = modifier

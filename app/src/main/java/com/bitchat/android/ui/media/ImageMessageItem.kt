@@ -21,7 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.unit.dp
-import com.bitchat.android.ui.theme.BitchatFontFamily
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
 import com.bitchat.android.mesh.MeshService
 import com.bitchat.android.model.BitchatMessage
 import com.bitchat.android.model.BitchatMessageType
@@ -71,7 +71,7 @@ fun ImageMessageItem(
                 }
             },
             onLongPress = { onMessageLongPress?.invoke(message) },
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             color = colorScheme.onSurface,
         )
 
@@ -143,7 +143,7 @@ fun ImageMessageItem(
                 }
             }
         } else {
-            Text(text = stringResource(com.bitchat.android.R.string.image_unavailable), fontFamily = BitchatFontFamily, color = Color.Gray)
+            Text(text = stringResource(com.bitchat.android.R.string.image_unavailable), fontFamily = ResQMeshFontFamily, color = Color.Gray)
         }
     }
 }

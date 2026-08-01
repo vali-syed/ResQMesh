@@ -208,12 +208,12 @@ fun MessageItem(
         else -> colorForPeer(message.sender + (message.senderPeerID ?: ""), palette)
     }
 
-    // Snappy appear animation for incoming messages (BitchatMotion.EMPHASIZED_MS)
+    // Snappy appear animation for incoming messages (ResQMeshMotion.EMPHASIZED_MS)
     var appeared by remember { mutableStateOf(false) }
     LaunchedEffect(message.id) { appeared = true }
     val alpha by androidx.compose.animation.core.animateFloatAsState(
         targetValue = if (appeared) 1f else 0f,
-        animationSpec = androidx.compose.animation.core.tween(BitchatMotion.EMPHASIZED_MS),
+        animationSpec = androidx.compose.animation.core.tween(ResQMeshMotion.EMPHASIZED_MS),
         label = "msgAlpha"
     )
     val offset by androidx.compose.animation.core.animateDpAsState(

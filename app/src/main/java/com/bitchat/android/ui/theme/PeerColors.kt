@@ -37,7 +37,7 @@ data class PeerColorStyle(
  * The djb2 hash and hue adjustment are byte-identical to the iOS implementation. Orange is
  * avoided because it is reserved for the current user.
  */
-fun colorForPeer(identity: PeerIdentity, palette: BitchatPalette): Color {
+fun colorForPeer(identity: PeerIdentity, palette: ResQMeshPalette): Color {
     var hash = 5381UL
     for (byte in identity.stableKey.toByteArray()) {
         hash = ((hash shl 5) + hash) + byte.toUByte().toULong()

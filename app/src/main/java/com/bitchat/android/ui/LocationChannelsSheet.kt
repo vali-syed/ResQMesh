@@ -52,7 +52,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import com.bitchat.android.ui.theme.BitchatFontFamily
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
 import com.bitchat.android.nostr.LocationNotesManager
 import com.bitchat.android.nostr.NearbyNotesController
 import com.bitchat.android.nostr.geohashesForSampling
@@ -395,7 +395,7 @@ fun LocationChannelsSheet(
                                 Text(
                                     text = stringResource(R.string.location_permission_denied),
                                     fontSize = 12.sp,
-                                    fontFamily = BitchatFontFamily,
+                                    fontFamily = ResQMeshFontFamily,
                                     color = colorScheme.error
                                 )
                                 TextButton(
@@ -415,7 +415,7 @@ fun LocationChannelsSheet(
                                     Text(
                                         text = stringResource(R.string.open_settings),
                                         fontSize = 12.sp,
-                                        fontFamily = BitchatFontFamily
+                                        fontFamily = ResQMeshFontFamily
                                     )
                                 }
                             }
@@ -524,11 +524,11 @@ fun LocationChannelsSheet(
                                 visible = customError != null,
                                 enter = fadeIn(tween(ResQMeshMotion.STANDARD_MS)) +
                                     expandVertically(
-                                        tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing)
+                                        tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing)
                                     ),
                                 exit = fadeOut(tween(ResQMeshMotion.QUICK_MS)) +
                                     shrinkVertically(
-                                        tween(BitchatMotion.QUICK_MS, easing = FastOutSlowInEasing)
+                                        tween(ResQMeshMotion.QUICK_MS, easing = FastOutSlowInEasing)
                                     )
                             ) {
                                 // Held across the exit animation: by the time it plays, the error
@@ -537,7 +537,7 @@ fun LocationChannelsSheet(
                                 Text(
                                     text = shownError,
                                     fontSize = 12.sp,
-                                    fontFamily = BitchatFontFamily,
+                                    fontFamily = ResQMeshFontFamily,
                                     color = colorScheme.error,
                                     modifier = Modifier.padding(
                                         start = AboutHorizontalPadding + ChannelRowHorizontal,
@@ -620,7 +620,7 @@ fun LocationChannelsSheet(
                                 Text(
                                     text = stringResource(R.string.tor_not_available_in_this_build),
                                     fontSize = 12.sp,
-                                    fontFamily = BitchatFontFamily,
+                                    fontFamily = ResQMeshFontFamily,
                                     color = palette.textTertiary,
                                     modifier = Modifier.padding(
                                         start = AboutHorizontalPadding + ChannelRowHorizontal,
@@ -778,7 +778,7 @@ private fun ChannelOptionRow(
                 Text(
                     text = baseTitle,
                     fontSize = 14.sp,
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontWeight = if (titleBold) FontWeight.SemiBold else FontWeight.Medium,
                     color = titleColor ?: colorScheme.onSurface
                 )
@@ -787,7 +787,7 @@ private fun ChannelOptionRow(
                         count = participantCount,
                         text = count,
                         fontSize = 11.sp,
-                        fontFamily = BitchatFontFamily,
+                        fontFamily = ResQMeshFontFamily,
                         color = colorScheme.onSurfaceVariant
                     )
                 }
@@ -795,7 +795,7 @@ private fun ChannelOptionRow(
             Text(
                 text = subtitle,
                 fontSize = 12.sp,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 lineHeight = 17.sp,
                 color = colorScheme.onSurfaceVariant
             )
@@ -860,7 +860,7 @@ private fun ChannelLoadingRow() {
         Text(
             text = stringResource(R.string.finding_nearby_channels),
             fontSize = 12.sp,
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             color = colorScheme.onSurfaceVariant
         )
     }
@@ -928,7 +928,7 @@ private fun CustomGeohashRow(
         Text(
             text = stringResource(R.string.hash_symbol),
             fontSize = 14.sp,
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             color = palette.textTertiary
         )
 
@@ -939,7 +939,7 @@ private fun CustomGeohashRow(
             onValueChange = onGeohashChange,
             textStyle = TextStyle(
                 fontSize = 14.sp,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 color = colorScheme.primary
             ),
             cursorBrush = SolidColor(colorScheme.primary),
@@ -967,7 +967,7 @@ private fun CustomGeohashRow(
                     Text(
                         text = stringResource(R.string.geohash_placeholder),
                         fontSize = 14.sp,
-                        fontFamily = BitchatFontFamily,
+                        fontFamily = ResQMeshFontFamily,
                         color = palette.textTertiary
                     )
                 }
@@ -1003,7 +1003,7 @@ private fun CustomGeohashRow(
                 fontSize = 11.sp,
                 letterSpacing = 0.8.sp,
                 fontWeight = FontWeight.Medium,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 color = teleportColor,
                 modifier = Modifier.padding(horizontal = 10.dp, vertical = 8.dp)
             )
@@ -1048,7 +1048,7 @@ private fun ChannelSettingsToggleRow(
             ) {
                 Text(
                     text = title,
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Medium,
                     color = if (enabled) colorScheme.onSurface else palette.textTertiary
@@ -1057,7 +1057,7 @@ private fun ChannelSettingsToggleRow(
             }
             Text(
                 text = subtitle,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 fontSize = 12.sp,
                 lineHeight = 17.sp,
                 color = if (enabled) colorScheme.onSurfaceVariant else palette.textTertiary

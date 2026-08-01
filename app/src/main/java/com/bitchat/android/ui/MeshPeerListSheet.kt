@@ -4,7 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
-import com.bitchat.android.ui.theme.BitchatFontFamily
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
 import com.bitchat.android.R
 import android.text.format.DateUtils
 import android.util.Log
@@ -199,12 +199,12 @@ fun MeshPeerListSheet(
                                     .padding(top = 10.dp),
                                 singleLine = true,
                                 textStyle = MaterialTheme.typography.bodyMedium.copy(
-                                    fontFamily = BitchatFontFamily
+                                    fontFamily = ResQMeshFontFamily
                                 ),
                                 placeholder = {
                                     Text(
                                         stringResource(R.string.search_conversations),
-                                        fontFamily = BitchatFontFamily
+                                        fontFamily = ResQMeshFontFamily
                                     )
                                 },
                                 leadingIcon = {
@@ -502,7 +502,7 @@ fun MeshPeerListSheet(
                 title = {
                     Text(
                         text = stringResource(R.string.delete_conversation_title),
-                        fontFamily = BitchatFontFamily
+                        fontFamily = ResQMeshFontFamily
                     )
                 },
                 text = {
@@ -511,7 +511,7 @@ fun MeshPeerListSheet(
                             R.string.delete_conversation_message,
                             conversation.displayName
                         ),
-                        fontFamily = BitchatFontFamily
+                        fontFamily = ResQMeshFontFamily
                     )
                 },
                 confirmButton = {
@@ -547,7 +547,7 @@ fun MeshPeerListSheet(
                         Text(
                             text = stringResource(R.string.delete),
                             color = MaterialTheme.colorScheme.error,
-                            fontFamily = BitchatFontFamily
+                            fontFamily = ResQMeshFontFamily
                         )
                     }
                 },
@@ -555,7 +555,7 @@ fun MeshPeerListSheet(
                     TextButton(onClick = { pendingConversationDelete = null }) {
                         Text(
                             text = stringResource(android.R.string.cancel),
-                            fontFamily = BitchatFontFamily
+                            fontFamily = ResQMeshFontFamily
                         )
                     }
                 }
@@ -601,7 +601,7 @@ private fun ChannelRow(
             } else {
                 Text(
                     text = "#",
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Medium,
                     color = palette.textTertiary
@@ -613,7 +613,7 @@ private fun ChannelRow(
 
         Text(
             text = channel,
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             fontSize = 14.sp,
             color = if (isSelected) colorScheme.primary else colorScheme.onSurface,
             fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Medium,
@@ -668,7 +668,7 @@ fun PeopleSection(
                 if (connectedPeers.isEmpty()) {
                     Text(
                         text = stringResource(id = R.string.no_one_connected),
-                        fontFamily = BitchatFontFamily,
+                        fontFamily = ResQMeshFontFamily,
                         fontSize = 12.sp,
                         color = palette.textTertiary,
                         modifier = Modifier
@@ -919,7 +919,7 @@ private fun ConversationSectionStatus(
             Text(
                 text = text,
                 style = MaterialTheme.typography.bodyMedium.copy(
-                    fontFamily = BitchatFontFamily
+                    fontFamily = ResQMeshFontFamily
                 ),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -936,7 +936,7 @@ private fun ConversationGroupLabel(text: String) {
             .padding(horizontal = AboutHorizontalPadding + 4.dp)
             .padding(top = 12.dp, bottom = 6.dp),
         style = MaterialTheme.typography.labelMedium.copy(
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             fontWeight = FontWeight.SemiBold
         ),
         color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -1081,7 +1081,7 @@ private fun ConversationSwipeItem(
                                 stringResource(R.string.delete)
                             },
                             style = MaterialTheme.typography.labelMedium.copy(
-                                fontFamily = BitchatFontFamily,
+                                fontFamily = ResQMeshFontFamily,
                                 fontWeight = FontWeight.SemiBold
                             )
                         )
@@ -1293,7 +1293,7 @@ private fun ConversationRow(
                 Text(
                     text = truncateNickname(baseNameRaw),
                     style = MaterialTheme.typography.bodyLarge.copy(
-                        fontFamily = BitchatFontFamily,
+                        fontFamily = ResQMeshFontFamily,
                         fontWeight = if (conversation.unreadCount > 0) {
                             FontWeight.Bold
                         } else {
@@ -1308,7 +1308,7 @@ private fun ConversationRow(
                     Text(
                         text = suffix,
                         style = MaterialTheme.typography.bodyMedium.copy(
-                            fontFamily = BitchatFontFamily,
+                            fontFamily = ResQMeshFontFamily,
                             fontWeight = FontWeight.Medium
                         ),
                         color = assignedColor.copy(alpha = SUFFIX_ALPHA)
@@ -1338,7 +1338,7 @@ private fun ConversationRow(
                 Text(
                     text = messagePreview,
                     style = MaterialTheme.typography.bodySmall.copy(
-                        fontFamily = BitchatFontFamily,
+                        fontFamily = ResQMeshFontFamily,
                         fontWeight = if (!conversation.draft.isNullOrBlank()) {
                             FontWeight.Medium
                         } else {
@@ -1360,7 +1360,7 @@ private fun ConversationRow(
                         relativeTime
                     ),
                     style = MaterialTheme.typography.labelSmall.copy(
-                        fontFamily = BitchatFontFamily
+                        fontFamily = ResQMeshFontFamily
                     ),
                     color = palette.textTertiary,
                     maxLines = 1
@@ -1547,7 +1547,7 @@ private fun PeerItem(
         ) {
             Text(
                 text = baseName,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 fontSize = 14.sp,
                 fontWeight = if (isMe) FontWeight.Bold else FontWeight.Medium,
                 color = baseColor,
@@ -1558,7 +1558,7 @@ private fun PeerItem(
             if (suffix.isNotEmpty()) {
                 Text(
                     text = suffix,
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontSize = 14.sp,
                     fontWeight = if (isMe) FontWeight.Bold else FontWeight.Medium,
                     color = baseColor.copy(alpha = SUFFIX_ALPHA)
@@ -1612,7 +1612,7 @@ private fun UnreadBadge(
         enter = fadeIn(tween(ResQMeshMotion.STANDARD_MS)) +
             scaleIn(
                 initialScale = 0.5f,
-                animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing)
+                animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing)
             ),
         exit = fadeOut(tween(ResQMeshMotion.QUICK_MS)) +
             scaleOut(
@@ -1637,7 +1637,7 @@ private fun UnreadBadge(
                 style = MaterialTheme.typography.labelSmall,
                 fontSize = 10.sp,
                 fontWeight = FontWeight.Bold,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 color = Color.Black
             )
         }
