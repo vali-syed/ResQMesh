@@ -39,6 +39,7 @@ import com.bitchat.android.onboarding.OnboardingCoordinator
 import com.bitchat.android.onboarding.OnboardingState
 import com.bitchat.android.onboarding.PermissionExplanationScreen
 import com.bitchat.android.onboarding.PermissionManager
+import com.bitchat.android.onboarding.SplashScreen
 import com.bitchat.android.ui.ChatScreen
 import com.bitchat.android.ui.ChatViewModel
 import com.bitchat.android.ui.OrientationAwareActivity
@@ -188,9 +189,20 @@ class MainActivity : OrientationAwareActivity() {
             }
         }
         
-        // Only start onboarding process if we're in the initial CHECKING state
+        // Only start onboarding process if we're in the initial SPLASH or CHECKING state
         // This prevents restarting onboarding on configuration changes
-        if (mainViewModel.onboardingState.value == OnboardingState.CHECKING) {
+        when (mainViewModel.onboardingState.value) {
+            OnboardingState.SPLASH -> showSplashScreen()
+            OnboardingState.CHECKING -> checkOnboardingStatus()
+            else -> {}
+        }
+    }
+    
+    private fun showSplashScreen() {
+        lifecycleScope.launch {
+            // Display splash for 2 seconds
+            delay(2000)
+            mainViewModel.updateOnboardingState(OnboardingState.CHECKING)
             checkOnboardingStatus()
         }
     }
@@ -229,6 +241,10 @@ class MainActivity : OrientationAwareActivity() {
         }
 
         when (onboardingState) {
+            OnboardingState.SPLASH -> {
+                SplashScreen(modifier)
+            }
+
             OnboardingState.PERMISSION_REQUESTING -> {
                 InitializingScreen(modifier)
             }

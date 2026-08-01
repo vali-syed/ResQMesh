@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.asStateFlow
 
 class MainViewModel : ViewModel() {
 
-    private val _onboardingState = MutableStateFlow(OnboardingState.CHECKING)
+    private val _onboardingState = MutableStateFlow(OnboardingState.SPLASH)
     val onboardingState: StateFlow<OnboardingState> = _onboardingState.asStateFlow()
 
     private val _bluetoothStatus = MutableStateFlow(BluetoothStatus.ENABLED)

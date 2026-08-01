@@ -6,6 +6,7 @@
     <string name="cashu_redeem_wallet">Redeem in wallet</string>
     <string name="cashu_redeem_web">Redeem on web</string>
     <string name="app_name">ResQMesh</string>
+    <string name="splash_tagline">Offline Emergency Communication</string>
     <string name="app_short_name" translatable="false">RQM</string>
     <string name="permission_bluetooth_rationale">Bluetooth permission is required for peer-to-peer messaging without internet.</string>
     <string name="permission_location_rationale">Location permission is required to discover nearby devices via Bluetooth.</string>
