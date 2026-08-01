@@ -34,7 +34,7 @@ import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
 import com.bitchat.watch.ui.theme.ChatVisualTokens
-import com.bitchat.watch.ui.theme.LocalBitchatPalette
+import com.bitchat.watch.ui.theme.LocalResQMeshPalette
 
 /**
  * Nickname entry, used both for first-run onboarding and for renaming later. The IME's
@@ -49,7 +49,7 @@ fun NicknameSetupScreen(
     confirmLabel: String = "Join the mesh",
     onConfirm: (String) -> Unit
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     // Pre-fill with the cursor at the end of the existing name, not the start.
     var name by remember {
         mutableStateOf(

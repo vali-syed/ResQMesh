@@ -27,7 +27,7 @@ import com.bitchat.android.model.BitchatMessage
 import com.bitchat.android.model.BitchatMessageType
 import androidx.compose.material3.ColorScheme
 import com.bitchat.android.core.ui.component.text.AnnotatedClickableText
-import com.bitchat.android.ui.theme.LocalBitchatPalette
+import com.bitchat.android.ui.theme.LocalResQMeshPalette
 import java.text.SimpleDateFormat
 
 @Composable
@@ -45,7 +45,7 @@ fun ImageMessageItem(
     modifier: Modifier = Modifier,
     showSender: Boolean = true
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val path = message.content.trim()
     Column(modifier = modifier.fillMaxWidth()) {
         val headerText = com.bitchat.android.ui.formatMessageHeaderAnnotatedString(

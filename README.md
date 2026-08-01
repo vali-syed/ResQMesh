@@ -1,12 +1,12 @@
 <img width="256" height="256" alt="icon_128x128@2x" src="https://github.com/user-attachments/assets/90133f83-b4f6-41c6-aab9-25d0859d2a47" />
 
-## bitchat for Android
+## ResQMesh for Android
 
 A decentralized peer-to-peer messaging app with dual transport architecture: local Bluetooth mesh networks for offline communication and internet-based Nostr protocol for global reach. No accounts, no phone numbers, no central servers.
 
-This is the Android implementation of bitchat, fully protocol-compatible with the [iOS version](https://github.com/permissionlesstech/bitchat) for cross-platform mesh communication.
+This is the Android implementation of ResQMesh, fully protocol-compatible with the [iOS version](https://github.com/permissionlesstech/bitchat) for cross-platform mesh communication.
 
-[bitchat.free](http://bitchat.free)
+[ResQMesh.free](http://bitchat.free)
 
 [GitHub Releases](https://github.com/permissionlesstech/bitchat-android/releases)
 
@@ -20,8 +20,8 @@ This is the Android implementation of bitchat, fully protocol-compatible with th
     <th>Geohash globe picker</th>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/readme-mesh-chat.png" alt="Active four-peer Bitchat mesh conversation with an image, voice messages, and text messages" width="360"/></td>
-    <td><img src="docs/screenshots/readme-geohash-globe.png" alt="Bitchat geohash location picker showing the whole Earth and geohash grid" width="360"/></td>
+    <td><img src="docs/screenshots/readme-mesh-chat.png" alt="Active four-peer ResQMesh mesh conversation with an image, voice messages, and text messages" width="360"/></td>
+    <td><img src="docs/screenshots/readme-geohash-globe.png" alt="ResQMesh geohash location picker showing the whole Earth and geohash grid" width="360"/></td>
   </tr>
 </table>
 
@@ -41,7 +41,7 @@ This project is released into the public domain. See the [LICENSE](LICENSE.md) f
 - **IRC-Style Commands**: Familiar `/join`, `/msg`, `/who` style interface
 - **Tor Support**: Built-in Tor (Arti) for private internet connectivity
 - **Emergency Wipe**: Triple-tap to instantly clear all data
-- **Cross-Platform**: Binary protocol compatible with bitchat on iOS and macOS
+- **Cross-Platform**: Binary protocol compatible with ResQMesh on iOS and macOS
 
 ## Technical Architecture
 

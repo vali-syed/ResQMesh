@@ -157,7 +157,7 @@
         <activity
             android:name=".hotspot.HotspotActivity"
             android:exported="false"
-            android:label="Share BitChat"
+            android:label="Share ResQMesh"
             android:theme="@style/Theme.BitchatAndroid"
             android:launchMode="singleTop" />
 

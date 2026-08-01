@@ -17,18 +17,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 
-// Standard UI semantics live in Material so stock components and custom Bitchat composables
-// share one source of truth. LocalBitchatPalette below only supplies app-specific extra colors.
-internal val DarkBitchatColorScheme = darkColorScheme(
-    primary = Color(0xFF32D74B),
-    onPrimary = Color.Black,
-    primaryContainer = Color(0xFF163D1D),
-    onPrimaryContainer = Color(0xFFB8F5C1),
-    secondary = Color(0xFF0A84FF),
-    onSecondary = Color.Black,
-    secondaryContainer = Color(0xFF082E54),
-    onSecondaryContainer = Color(0xFFC2E0FF),
-    tertiary = DarkBitchatPalette.accentOrange,
+// Standard UI semantics live in Material so stock components and custom ResQMesh composables
+// share one source of truth. LocalResQMeshPalette below only supplies app-specific extra colors.
+internal val DarkResQMeshColorScheme = darkColorScheme(
+    primary = Color(0xFF1565C0),
+    onPrimary = Color.White,
+    primaryContainer = Color(0xFF004494),
+    onPrimaryContainer = Color(0xFFD1E4FF),
+    secondary = Color(0xFF00ACC1),
+    onSecondary = Color.White,
+    secondaryContainer = Color(0xFF004F54),
+    onSecondaryContainer = Color(0xFFB2EBF2),
+    tertiary = DarkResQMeshPalette.accentOrange,
     onTertiary = Color.Black,
     background = Color(0xFF000000),
     onBackground = Color(0xFFF5F5F5),
@@ -38,20 +38,20 @@ internal val DarkBitchatColorScheme = darkColorScheme(
     onSurfaceVariant = Color(0xFF9AA69A),
     outline = Color(0xFF2A3A2A),
     outlineVariant = Color(0xFF1C271C),
-    error = Color(0xFFFF453A),
-    onError = Color.Black
+    error = Color(0xFFD32F2F),
+    onError = Color.White
 )
 
-internal val LightBitchatColorScheme = lightColorScheme(
-    primary = Color(0xFF248A3D),
+internal val LightResQMeshColorScheme = lightColorScheme(
+    primary = Color(0xFF1565C0),
     onPrimary = Color.White,
-    primaryContainer = Color(0xFFD5F1D8),
-    onPrimaryContainer = Color(0xFF0A3212),
-    secondary = Color(0xFF007AFF),
+    primaryContainer = Color(0xFFD1E4FF),
+    onPrimaryContainer = Color(0xFF001D36),
+    secondary = Color(0xFF00ACC1),
     onSecondary = Color.White,
-    secondaryContainer = Color(0xFFD6E9FF),
-    onSecondaryContainer = Color(0xFF002C5C),
-    tertiary = LightBitchatPalette.accentOrange,
+    secondaryContainer = Color(0xFFB2EBF2),
+    onSecondaryContainer = Color(0xFF002021),
+    tertiary = LightResQMeshPalette.accentOrange,
     onTertiary = Color.Black,
     background = Color(0xFFFFFFFF),
     onBackground = Color(0xFF131A13),
@@ -61,12 +61,12 @@ internal val LightBitchatColorScheme = lightColorScheme(
     onSurfaceVariant = Color(0xFF4C574C),
     outline = Color(0xFFCBD6CB),
     outlineVariant = Color(0xFFDEE6DE),
-    error = Color(0xFFD70015),
+    error = Color(0xFFD32F2F),
     onError = Color.White
 )
 
 @Composable
-fun BitchatTheme(
+fun ResQMeshTheme(
     darkTheme: Boolean? = null,
     content: @Composable () -> Unit
 ) {
@@ -82,8 +82,8 @@ fun BitchatTheme(
         }
     }
 
-    val colorScheme = if (shouldUseDark) DarkBitchatColorScheme else LightBitchatColorScheme
-    val palette = if (shouldUseDark) DarkBitchatPalette else LightBitchatPalette
+    val colorScheme = if (shouldUseDark) DarkResQMeshColorScheme else LightResQMeshColorScheme
+    val palette = if (shouldUseDark) DarkResQMeshPalette else LightResQMeshPalette
 
     val view = LocalView.current
     SideEffect {
@@ -106,7 +106,7 @@ fun BitchatTheme(
         }
     }
 
-    CompositionLocalProvider(LocalBitchatPalette provides palette) {
+    CompositionLocalProvider(LocalResQMeshPalette provides palette) {
         MaterialTheme(
             colorScheme = colorScheme,
             typography = Typography,

@@ -5,7 +5,7 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 @Immutable
-data class BitchatPalette(
+data class ResQMeshPalette(
     val inputOutline: Color,
     val inputOutlineFocused: Color,
     val inputSurface: Color,
@@ -17,7 +17,7 @@ data class BitchatPalette(
     val peerColors: PeerColorStyle,
 )
 
-val DarkBitchatPalette = BitchatPalette(
+val DarkResQMeshPalette = ResQMeshPalette(
     inputOutline = Color(0xFF333635),
     inputOutlineFocused = Color(0xFF5A605D),
     inputSurface = Color(0xFF0B0B0B),
@@ -29,9 +29,9 @@ val DarkBitchatPalette = BitchatPalette(
     peerColors = PeerColorStyle.Dark,
 )
 
-val LocalBitchatPalette = staticCompositionLocalOf { DarkBitchatPalette }
+val LocalResQMeshPalette = staticCompositionLocalOf { DarkResQMeshPalette }
 
-object BitchatMotion {
+object ResQMeshMotion {
     const val QUICK_MS = 120
     const val STANDARD_MS = 180
     const val EMPHASIZED_MS = 240

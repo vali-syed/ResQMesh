@@ -16,12 +16,7 @@ import com.bitchat.android.R
  * Keeping the fonts in the APK preserves offline behavior and guarantees that the design-spec
  * metrics do not depend on which monospace family a device happens to provide.
  */
-internal val BitchatFontFamily = FontFamily(
-    Font(R.font.geist_mono_regular, FontWeight.Normal),
-    Font(R.font.geist_mono_medium, FontWeight.Medium),
-    Font(R.font.geist_mono_semibold, FontWeight.SemiBold),
-    Font(R.font.geist_mono_bold, FontWeight.Bold),
-)
+internal val ResQMeshFontFamily = FontFamily.SansSerif
 
 /** Exact typography, spacing, and opacity values exported for the chat transcript. */
 internal object ChatVisualTokens {
@@ -42,21 +37,21 @@ internal object ChatVisualTokens {
     const val MutedTextAlpha: Float = 0.50f
 
     val MessageBodyStyle = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = MessageBodyFontSize,
         lineHeight = MessageBodyLineHeight,
     )
 
     val SenderStyle = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.SemiBold,
         fontSize = SenderFontSize,
         lineHeight = SenderLineHeight,
     )
 
     val SystemActionStyle = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Medium,
         fontSize = SystemActionFontSize,
         lineHeight = SystemActionLineHeight,

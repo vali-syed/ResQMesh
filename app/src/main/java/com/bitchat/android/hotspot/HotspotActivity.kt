@@ -36,8 +36,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bitchat.android.R
-import com.bitchat.android.ui.theme.BitchatFontFamily
-import com.bitchat.android.ui.theme.BitchatTheme
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
+import com.bitchat.android.ui.theme.ResQMeshTheme
 import com.bitchat.android.util.UniversalApkManager
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
@@ -75,7 +75,7 @@ class HotspotActivity : ComponentActivity() {
         }
 
         setContent {
-            BitchatTheme {
+            ResQMeshTheme {
                 HotspotScreen(
                     viewModel = viewModel,
                     apkFile = apkFile,
@@ -111,7 +111,7 @@ fun HotspotScreen(
                 title = {
                     Text(
                         text = "Share BitChat",
-                        fontFamily = BitchatFontFamily
+                        fontFamily = ResQMeshFontFamily
                     )
                 },
                 navigationIcon = {
@@ -420,7 +420,7 @@ fun ActiveHotspotScreen(state: HotspotViewModel.HotspotState.Active) {
                     text = {
                         Text(
                             text = title,
-                            fontFamily = BitchatFontFamily,
+                            fontFamily = ResQMeshFontFamily,
                             fontWeight = if (selectedTab == index) FontWeight.Bold else FontWeight.Normal
                         )
                     }
@@ -637,7 +637,7 @@ fun CredentialCard(
                 Text(
                     text = value,
                     style = MaterialTheme.typography.bodyLarge,
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSecondaryContainer
                 )

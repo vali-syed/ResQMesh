@@ -39,9 +39,9 @@ import androidx.wear.compose.material3.Text
 import androidx.wear.compose.material3.lazy.rememberTransformationSpec
 import androidx.wear.compose.material3.lazy.transformedHeight
 import com.bitchat.android.model.BitchatMessage
-import com.bitchat.watch.ui.theme.BitchatMotion
+import com.bitchat.watch.ui.theme.ResQMeshMotion
 import com.bitchat.watch.ui.theme.ChatVisualTokens
-import com.bitchat.watch.ui.theme.LocalBitchatPalette
+import com.bitchat.watch.ui.theme.LocalResQMeshPalette
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 
@@ -182,7 +182,7 @@ private fun ChatBody(
     actionBar: @Composable () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val context = LocalContext.current
     val transformationSpec = rememberTransformationSpec()
 
@@ -308,12 +308,12 @@ private fun ChatBody(
             modifier = Modifier.align(Alignment.BottomCenter),
             enter = slideInVertically(
                 initialOffsetY = { it },
-                animationSpec = tween(BitchatMotion.STANDARD_MS)
-            ) + fadeIn(animationSpec = tween(BitchatMotion.STANDARD_MS)),
+                animationSpec = tween(ResQMeshMotion.STANDARD_MS)
+            ) + fadeIn(animationSpec = tween(ResQMeshMotion.STANDARD_MS)),
             exit = slideOutVertically(
                 targetOffsetY = { it },
-                animationSpec = tween(BitchatMotion.STANDARD_MS)
-            ) + fadeOut(animationSpec = tween(BitchatMotion.STANDARD_MS))
+                animationSpec = tween(ResQMeshMotion.STANDARD_MS)
+            ) + fadeOut(animationSpec = tween(ResQMeshMotion.STANDARD_MS))
         ) {
             Box(modifier = Modifier.padding(bottom = 10.dp)) {
                 actionBar()

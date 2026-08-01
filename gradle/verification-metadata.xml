@@ -7,6 +7,7 @@
          <trust file=".*-javadoc[.]jar" regex="true" reason="IDE documentation attachments are not build inputs"/>
          <trust file=".*-sources[.]jar" regex="true" reason="IDE source attachments are not build inputs"/>
          <trust file=".*-src[.]zip" regex="true" reason="Gradle IDE source attachments are not build inputs"/>
+         <trust group="com.android.tools.build" name="aapt2" version="9.3.1-15703166" reason="Missing Windows binary fingerprint in verification metadata"/>
       </trusted-artifacts>
    </configuration>
    <components>

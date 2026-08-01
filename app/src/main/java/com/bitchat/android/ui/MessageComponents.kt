@@ -82,9 +82,9 @@ import com.bitchat.android.model.BitchatMessageType
 import com.bitchat.android.model.DeliveryStatus
 import com.bitchat.android.ui.media.FileMessageItem
 import com.bitchat.android.ui.theme.BASE_FONT_SIZE
-import com.bitchat.android.ui.theme.BitchatMotion
+import com.bitchat.android.ui.theme.ResQMeshMotion
 import com.bitchat.android.ui.theme.ChatVisualTokens
-import com.bitchat.android.ui.theme.LocalBitchatPalette
+import com.bitchat.android.ui.theme.LocalResQMeshPalette
 import com.bitchat.android.ui.theme.MessageBodyTextStyle
 import com.bitchat.android.ui.theme.MessageSenderTextStyle
 import kotlinx.coroutines.delay
@@ -120,7 +120,7 @@ private val MessagePlacementSpec: FiniteAnimationSpec<IntOffset> = spring(
 )
 
 /** Removals are not worth dwelling on. */
-private val MessageFadeOutSpec: FiniteAnimationSpec<Float> = tween(BitchatMotion.QUICK_MS)
+private val MessageFadeOutSpec: FiniteAnimationSpec<Float> = tween(ResQMeshMotion.QUICK_MS)
 
 /**
  * How long placement animation stays armed after the list gains or loses a message.
@@ -464,7 +464,7 @@ fun MessageItem(
         onImageClick: ((String, List<String>, Int) -> Unit)?,
         modifier: Modifier = Modifier
     ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
 
     // Image special rendering
     if (message.type == BitchatMessageType.Image) {
@@ -689,7 +689,7 @@ internal fun TextMessageLayout(
     showSender: Boolean = true,
     bodyContent: String = message.content,
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val myPeerId = meshService.myPeerID
     val displayMessage = remember(message, bodyContent) {
         if (bodyContent == message.content) message else message.copy(content = bodyContent)
@@ -941,8 +941,8 @@ fun DeliveryStatusIcon(status: DeliveryStatus) {
     AnimatedContent(
         targetState = status::class,
         transitionSpec = {
-            fadeIn(tween(BitchatMotion.STANDARD_MS)) togetherWith
-                fadeOut(tween(BitchatMotion.QUICK_MS))
+            fadeIn(tween(ResQMeshMotion.STANDARD_MS)) togetherWith
+                fadeOut(tween(ResQMeshMotion.QUICK_MS))
         },
         label = "deliveryStatus"
     ) { statusClass ->

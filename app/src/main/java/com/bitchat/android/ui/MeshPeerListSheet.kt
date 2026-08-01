@@ -63,8 +63,8 @@ import com.bitchat.android.geohash.ChannelID
 import com.bitchat.android.identity.SecureIdentityStateManager
 import com.bitchat.android.model.BitchatMessageType
 import com.bitchat.android.ui.theme.BASE_FONT_SIZE
-import com.bitchat.android.ui.theme.BitchatMotion
-import com.bitchat.android.ui.theme.LocalBitchatPalette
+import com.bitchat.android.ui.theme.ResQMeshMotion
+import com.bitchat.android.ui.theme.LocalResQMeshPalette
 import com.bitchat.android.ui.theme.colorForPeer
 import com.bitchat.android.nostr.GeohashAliasRegistry
 import com.bitchat.android.nostr.GeohashConversationRegistry
@@ -577,7 +577,7 @@ private fun ChannelRow(
     onChannelClick: () -> Unit,
     onLeaveChannel: () -> Unit,
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
 
     Row(
         modifier = Modifier
@@ -648,7 +648,7 @@ fun PeopleSection(
         SecureIdentityStateManager(context.applicationContext)
     }
 
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
 
     Column(modifier = modifier) {
         SheetIconSectionHeader(
@@ -1130,7 +1130,7 @@ private fun ConversationRow(
     onReadStateRequested: () -> Unit,
     onDeleteRequested: () -> Unit
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val colorScheme = MaterialTheme.colorScheme
     var showActions by remember { mutableStateOf(false) }
     val liveIdentityIDs = conversation.identityAliases +
@@ -1486,7 +1486,7 @@ private fun PeerItem(
     val isMe = displayName == "You" || peerID == currentNickname
 
     // Get consistent peer color (iOS-compatible)
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val assignedColor = colorForPeer(
         viewModel.peerIdentityForMeshPeer(peerID),
         palette
@@ -1604,20 +1604,20 @@ private fun UnreadBadge(
     colorScheme: ColorScheme,
     modifier: Modifier = Modifier
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     // Scale/fade in and out so a badge appearing while the sheet is open is noticed, and one
     // clearing does not just blink away.
     AnimatedVisibility(
         visible = count > 0,
-        enter = fadeIn(tween(BitchatMotion.STANDARD_MS)) +
+        enter = fadeIn(tween(ResQMeshMotion.STANDARD_MS)) +
             scaleIn(
                 initialScale = 0.5f,
                 animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing)
             ),
-        exit = fadeOut(tween(BitchatMotion.QUICK_MS)) +
+        exit = fadeOut(tween(ResQMeshMotion.QUICK_MS)) +
             scaleOut(
                 targetScale = 0.5f,
-                animationSpec = tween(BitchatMotion.QUICK_MS, easing = FastOutSlowInEasing)
+                animationSpec = tween(ResQMeshMotion.QUICK_MS, easing = FastOutSlowInEasing)
             ),
         modifier = modifier
     ) {
@@ -1788,7 +1788,7 @@ fun PrivateChatSheet(
         viewModel.isPeerVerified(peerID, verifiedFingerprints)
     }
 
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     // Three-state star: grey outline (no relation), orange outline (they favorited us),
     // filled orange (we favorited them, mutual or not).
     val favoriteStarTint by animateColorAsState(
@@ -1796,7 +1796,7 @@ fun PrivateChatSheet(
             isFavorite || theyFavoritedUs -> palette.accentOrange
             else -> colorScheme.onSurfaceVariant
         },
-        animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
         label = "favoriteStarTint"
     )
     val sheetState = rememberModalBottomSheetState(

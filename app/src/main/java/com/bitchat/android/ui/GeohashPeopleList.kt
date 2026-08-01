@@ -16,10 +16,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.bitchat.android.ui.theme.BitchatFontFamily
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
 import com.bitchat.android.ui.theme.colorForPeer
 import com.bitchat.android.R
-import com.bitchat.android.ui.theme.LocalBitchatPalette
+import com.bitchat.android.ui.theme.LocalResQMeshPalette
 import java.util.*
 
 /**
@@ -46,7 +46,7 @@ fun GeohashPeopleList(
     val nickname by viewModel.nickname.collectAsStateWithLifecycle()
     val unreadPrivateMessages by viewModel.unreadPrivateMessages.collectAsStateWithLifecycle()
 
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val colorScheme = MaterialTheme.colorScheme
     val myHex = remember(selectedLocationChannel) {
         when (val channel = selectedLocationChannel) {
@@ -119,7 +119,7 @@ fun GeohashPeopleList(
             ) {
                 Text(
                     text = stringResource(R.string.nobody_around),
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontSize = 12.sp,
                     color = palette.textTertiary,
                     modifier = Modifier.padding(
@@ -280,7 +280,7 @@ private fun GeohashPersonItem(
     showHashSuffix: Boolean,
     onTap: () -> Unit
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val colorScheme = MaterialTheme.colorScheme
 
     val statusIconRes =
@@ -328,7 +328,7 @@ private fun GeohashPersonItem(
         ) {
             Text(
                 text = baseName,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 fontSize = 14.sp,
                 fontWeight = if (isMe) FontWeight.Bold else FontWeight.Medium,
                 color = baseColor,
@@ -339,7 +339,7 @@ private fun GeohashPersonItem(
             if (suffix.isNotEmpty()) {
                 Text(
                     text = suffix,
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Normal,
                     color = baseColor.copy(alpha = SUFFIX_ALPHA)
@@ -349,7 +349,7 @@ private fun GeohashPersonItem(
             if (isMe) {
                 Text(
                     text = stringResource(R.string.you_suffix),
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontSize = 14.sp,
                     color = baseColor
                 )

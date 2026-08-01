@@ -8,34 +8,29 @@ import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material3.Typography
 import com.bitchat.watch.R
 
-val BitchatFontFamily = FontFamily(
-    Font(R.font.geist_mono_regular, FontWeight.Normal),
-    Font(R.font.geist_mono_medium, FontWeight.Medium),
-    Font(R.font.geist_mono_semibold, FontWeight.SemiBold),
-    Font(R.font.geist_mono_bold, FontWeight.Bold),
-)
+val ResQMeshFontFamily = FontFamily.SansSerif
 
-val BitchatWearTypography = Typography(
-    defaultFontFamily = BitchatFontFamily,
+val ResQMeshWearTypography = Typography(
+    defaultFontFamily = ResQMeshFontFamily,
 )
 
 object ChatVisualTokens {
     val MessageBodyStyle = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 13.sp,
         lineHeight = 17.sp,
     )
 
     val SenderStyle = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.SemiBold,
         fontSize = 13.sp,
         lineHeight = 15.sp,
     )
 
     val SystemActionStyle = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Medium,
         fontSize = 11.sp,
         lineHeight = 14.sp,

@@ -19,7 +19,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
-import com.bitchat.android.ui.theme.BitchatMotion
+import com.bitchat.android.ui.theme.ResQMeshMotion
 
 /**
  * Counts that roll to their new value instead of snapping.
@@ -46,14 +46,14 @@ fun AnimatedCount(
             val goingUp = targetState > initialState
             (
                 slideInVertically(
-                    animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+                    animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
                     initialOffsetY = { height -> if (goingUp) height else -height }
-                ) + fadeIn(tween(BitchatMotion.STANDARD_MS))
+                ) + fadeIn(tween(ResQMeshMotion.STANDARD_MS))
             ).togetherWith(
                 slideOutVertically(
-                    animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+                    animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
                     targetOffsetY = { height -> if (goingUp) -height else height }
-                ) + fadeOut(tween(BitchatMotion.QUICK_MS))
+                ) + fadeOut(tween(ResQMeshMotion.QUICK_MS))
             // Clip so the outgoing digit cannot bleed past the text bounds mid-transition.
             ) using SizeTransform(clip = true)
         },
@@ -93,8 +93,8 @@ fun AnimatedCountLabel(
     AnimatedContent(
         targetState = count,
         transitionSpec = {
-            fadeIn(tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing))
-                .togetherWith(fadeOut(tween(BitchatMotion.QUICK_MS)))
+            fadeIn(tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing))
+                .togetherWith(fadeOut(tween(ResQMeshMotion.QUICK_MS)))
                 .using(SizeTransform(clip = false))
         },
         modifier = modifier,

@@ -31,7 +31,7 @@ import androidx.wear.compose.material3.Text
 import com.bitchat.watch.R
 import com.bitchat.watch.mesh.WearMeshService
 import com.bitchat.watch.ui.theme.ChatVisualTokens
-import com.bitchat.watch.ui.theme.LocalBitchatPalette
+import com.bitchat.watch.ui.theme.LocalResQMeshPalette
 import com.bitchat.watch.ui.theme.colorForPeer
 
 @Composable
@@ -46,7 +46,7 @@ fun UserDetailScreen(
     }
     val nickname = mesh?.getPeerNickname(peerID) ?: peerID.take(8)
     val listState = rememberScalingLazyListState()
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
 
     ScreenScaffold(scrollState = listState) {
         ScalingLazyColumn(

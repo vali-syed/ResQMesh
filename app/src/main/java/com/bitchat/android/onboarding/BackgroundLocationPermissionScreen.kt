@@ -32,7 +32,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.res.stringResource
-import com.bitchat.android.ui.theme.BitchatFontFamily
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
 import com.bitchat.android.R
 
 /**
@@ -105,7 +105,7 @@ fun BackgroundLocationPermissionScreen(
                                 Text(
                                     text = stringResource(R.string.background_location_settings_tip),
                                     style = MaterialTheme.typography.bodySmall.copy(
-                                        fontFamily = BitchatFontFamily
+                                        fontFamily = ResQMeshFontFamily
                                     ),
                                     color = colorScheme.onBackground.copy(alpha = 0.8f)
                                 )
@@ -146,14 +146,14 @@ fun BackgroundLocationPermissionScreen(
                                 Text(
                                     text = stringResource(R.string.background_location_needs_bullets),
                                     style = MaterialTheme.typography.bodySmall,
-                                    fontFamily = BitchatFontFamily,
+                                    fontFamily = ResQMeshFontFamily,
                                     color = colorScheme.onBackground.copy(alpha = 0.8f)
                                 )
                                 Spacer(modifier = Modifier.height(8.dp))
                                 Text(
                                     text = stringResource(R.string.background_location_privacy_note),
                                     style = MaterialTheme.typography.bodySmall.copy(
-                                        fontFamily = BitchatFontFamily,
+                                        fontFamily = ResQMeshFontFamily,
                                         fontWeight = FontWeight.Medium
                                     ),
                                     color = colorScheme.onBackground
@@ -179,7 +179,7 @@ fun BackgroundLocationPermissionScreen(
                     Text(
                         text = stringResource(R.string.grant_background_location),
                         style = MaterialTheme.typography.bodyMedium.copy(
-                            fontFamily = BitchatFontFamily,
+                            fontFamily = ResQMeshFontFamily,
                             fontWeight = FontWeight.Bold
                         )
                     )
@@ -196,7 +196,7 @@ fun BackgroundLocationPermissionScreen(
                         Text(
                             text = stringResource(R.string.check_again),
                             style = MaterialTheme.typography.bodyMedium.copy(
-                                fontFamily = BitchatFontFamily
+                                fontFamily = ResQMeshFontFamily
                             )
                         )
                     }
@@ -208,7 +208,7 @@ fun BackgroundLocationPermissionScreen(
                         Text(
                             text = stringResource(R.string.battery_optimization_skip),
                             style = MaterialTheme.typography.bodyMedium.copy(
-                                fontFamily = BitchatFontFamily
+                                fontFamily = ResQMeshFontFamily
                             )
                         )
                     }
@@ -229,7 +229,7 @@ private fun HeaderSection(colorScheme: ColorScheme) {
         Text(
             text = stringResource(R.string.app_name),
             style = MaterialTheme.typography.headlineLarge.copy(
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 fontWeight = FontWeight.Bold,
                 fontSize = 32.sp
             ),
@@ -239,7 +239,7 @@ private fun HeaderSection(colorScheme: ColorScheme) {
         Text(
             text = stringResource(R.string.background_location_required_subtitle),
             fontSize = 12.sp,
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             color = colorScheme.onBackground.copy(alpha = 0.7f)
         )
     }

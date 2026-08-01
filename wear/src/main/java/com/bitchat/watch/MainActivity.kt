@@ -52,7 +52,7 @@ import com.bitchat.watch.ui.VerificationCodeScreen
 import com.bitchat.watch.ui.WearChatState
 import com.bitchat.watch.ui.sendPrivateMessage
 import com.bitchat.watch.ui.sendPublicMessage
-import com.bitchat.watch.ui.theme.BitchatWearTheme
+import com.bitchat.watch.ui.theme.ResQMeshWearTheme
 
 sealed interface WearScreen {
     data object Chat : WearScreen
@@ -91,7 +91,7 @@ class MainActivity : ComponentActivity() {
         }
         refreshState()
         setContent {
-            BitchatWearTheme {
+            ResQMeshWearTheme {
                 when {
                     !hasPermissions -> PermissionRequestScreen(onGranted = { refreshState() })
                     !bluetoothEnabled -> BluetoothEnableScreen(onEnabled = { refreshState() })
@@ -394,8 +394,8 @@ internal fun WearNavHost(
     AnimatedContent(
         targetState = navigation.screen,
         transitionSpec = {
-            fadeIn(tween(com.bitchat.watch.ui.theme.BitchatMotion.EMPHASIZED_MS)) togetherWith
-                fadeOut(tween(com.bitchat.watch.ui.theme.BitchatMotion.QUICK_MS))
+            fadeIn(tween(com.bitchat.watch.ui.theme.ResQMeshMotion.EMPHASIZED_MS)) togetherWith
+                fadeOut(tween(com.bitchat.watch.ui.theme.ResQMeshMotion.QUICK_MS))
         },
         label = "screenTransition"
     ) { current ->

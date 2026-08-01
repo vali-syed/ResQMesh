@@ -49,9 +49,9 @@ import com.bitchat.watch.ui.media.FileMessageChip
 import com.bitchat.watch.ui.media.FullScreenImageViewer
 import com.bitchat.watch.ui.media.ImageMessageItem
 import com.bitchat.watch.ui.media.VoiceNoteItem
-import com.bitchat.watch.ui.theme.BitchatMotion
+import com.bitchat.watch.ui.theme.ResQMeshMotion
 import com.bitchat.watch.ui.theme.ChatVisualTokens
-import com.bitchat.watch.ui.theme.LocalBitchatPalette
+import com.bitchat.watch.ui.theme.LocalResQMeshPalette
 import com.bitchat.watch.ui.theme.colorForPeer
 import java.io.File
 import java.text.SimpleDateFormat
@@ -124,7 +124,7 @@ private fun ChatHeader(
     // while scrolling up into history. Rendered as an overlay, so the animation only
     // relayouts this row, never the message list.
     val spec = androidx.compose.animation.core.tween<androidx.compose.ui.unit.Dp>(
-        BitchatMotion.STANDARD_MS
+        ResQMeshMotion.STANDARD_MS
     )
     val iconSize by androidx.compose.animation.core.animateDpAsState(
         targetValue = if (expanded) 16.dp else 11.dp, animationSpec = spec, label = "hdrIcon"
@@ -176,7 +176,7 @@ private fun ChatHeader(
             Icon(
                 imageVector = Icons.Filled.MailOutline,
                 contentDescription = "$unreadDms unread messages",
-                tint = LocalBitchatPalette.current.accentOrange,
+                tint = LocalResQMeshPalette.current.accentOrange,
                 modifier = Modifier
                     .padding(start = 6.dp)
                     .size(iconSize)
@@ -187,7 +187,7 @@ private fun ChatHeader(
                 fontSize = with(androidx.compose.ui.platform.LocalDensity.current) {
                     (iconSize.value * 0.85f).dp.toSp()
                 },
-                color = LocalBitchatPalette.current.accentOrange,
+                color = LocalResQMeshPalette.current.accentOrange,
                 modifier = Modifier.padding(start = 2.dp)
             )
         }
@@ -201,7 +201,7 @@ fun MessageItem(
     onOpenImage: (String) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val isSelf = message.senderPeerID == myPeerID
     val senderColor = when {
         isSelf -> palette.accentOrange
@@ -218,7 +218,7 @@ fun MessageItem(
     )
     val offset by androidx.compose.animation.core.animateDpAsState(
         targetValue = if (appeared) 0.dp else 6.dp,
-        animationSpec = androidx.compose.animation.core.tween(BitchatMotion.EMPHASIZED_MS),
+        animationSpec = androidx.compose.animation.core.tween(ResQMeshMotion.EMPHASIZED_MS),
         label = "msgOffset"
     )
 

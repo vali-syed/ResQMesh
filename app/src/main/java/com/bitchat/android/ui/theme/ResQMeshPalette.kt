@@ -5,14 +5,14 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 /**
- * Bitchat-specific color tokens that do not have a faithful Material 3 semantic role.
+ * ResQMesh-specific color tokens that do not have a faithful Material 3 semantic role.
  *
  * Standard backgrounds, surfaces, text, outlines, primary/secondary accents, and errors belong
  * to [androidx.compose.material3.MaterialTheme.colorScheme]. Keeping only the extra app semantics
- * here lets Material components inherit correct defaults without losing Bitchat's identity.
+ * here lets Material components inherit correct defaults without losing ResQMesh's identity.
  */
 @Immutable
-data class BitchatPalette(
+data class ResQMeshPalette(
     // MARK: - Form controls
     /**
      * Resting border for text inputs. Deliberately a neutral grey rather than the green-tinted
@@ -48,7 +48,7 @@ data class BitchatPalette(
     val peerColors: PeerColorStyle,
 )
 
-val DarkBitchatPalette = BitchatPalette(
+val DarkResQMeshPalette = ResQMeshPalette(
     inputOutline = Color(0xFF333635),
     inputOutlineFocused = Color(0xFF5A605D),
     inputSurface = Color(0xFF0B0B0B),
@@ -60,7 +60,7 @@ val DarkBitchatPalette = BitchatPalette(
     peerColors = PeerColorStyle.Dark,
 )
 
-val LightBitchatPalette = BitchatPalette(
+val LightResQMeshPalette = ResQMeshPalette(
     inputOutline = Color(0xFFCFD3D1),
     inputOutlineFocused = Color(0xFF8E9490),
     inputSurface = Color(0xFFFAFAFA),
@@ -72,13 +72,13 @@ val LightBitchatPalette = BitchatPalette(
     peerColors = PeerColorStyle.Light,
 )
 
-val LocalBitchatPalette = staticCompositionLocalOf { DarkBitchatPalette }
+val LocalResQMeshPalette = staticCompositionLocalOf { DarkResQMeshPalette }
 
 /**
  * Motion tokens. The redesign leans on short, snappy transitions: long durations read as
  * sluggish on a chat surface where the user is scanning quickly.
  */
-object BitchatMotion {
+object ResQMeshMotion {
     /** Icon tints, text colors, small fills. */
     const val QUICK_MS = 120
 

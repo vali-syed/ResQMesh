@@ -8,7 +8,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
 import com.bitchat.android.model.BitchatMessage
 import com.bitchat.android.ui.theme.BASE_FONT_SIZE
-import com.bitchat.android.ui.theme.BitchatPalette
+import com.bitchat.android.ui.theme.ResQMeshPalette
 import com.bitchat.android.ui.theme.ChatVisualTokens
 import com.bitchat.android.ui.theme.colorForPeer
 import java.text.SimpleDateFormat
@@ -63,7 +63,7 @@ fun formatTextMessageSender(
     message: BitchatMessage,
     currentUserNickname: String,
     myPeerID: String,
-    palette: BitchatPalette
+    palette: ResQMeshPalette
 ): AnnotatedString {
     val builder = AnnotatedString.Builder()
     val isSelf = message.isFromSelf(currentUserNickname, myPeerID)
@@ -158,7 +158,7 @@ private fun appendTimestampText(
 private fun appendBodyTimestamp(
     builder: AnnotatedString.Builder,
     message: BitchatMessage,
-    palette: BitchatPalette,
+    palette: ResQMeshPalette,
     timeFormatter: SimpleDateFormat,
 ) {
     builder.pushStyle(
@@ -199,7 +199,7 @@ private fun appendMutedTimestamp(
 fun formatTextMessageBody(
     message: BitchatMessage,
     currentUserNickname: String,
-    palette: BitchatPalette,
+    palette: ResQMeshPalette,
     contentColor: Color,
     linkColor: Color,
     mentionPeerIdentities: Map<String, PeerIdentity> = emptyMap(),
@@ -262,7 +262,7 @@ fun formatMessageHeaderAnnotatedString(
     message: BitchatMessage,
     currentUserNickname: String,
     myPeerID: String,
-    palette: BitchatPalette,
+    palette: ResQMeshPalette,
     contentColor: Color,
     timeFormatter: SimpleDateFormat = SimpleDateFormat(CHAT_TIMESTAMP_PATTERN, Locale.getDefault()),
     includeSender: Boolean = true
@@ -394,7 +394,7 @@ internal fun resolveMentionPeerIdentity(
 internal fun colorForMention(
     mention: String,
     mentionPeerIdentities: Map<String, PeerIdentity>,
-    palette: BitchatPalette,
+    palette: ResQMeshPalette,
 ): Color {
     val mentionWithoutAt = mention.trim().removePrefix("@")
     val identity = resolveMentionPeerIdentity(mentionWithoutAt, mentionPeerIdentities)
@@ -429,7 +429,7 @@ private fun appendIOSFormattedContent(
     builder: AnnotatedString.Builder,
     content: String,
     currentUserNickname: String,
-    palette: BitchatPalette,
+    palette: ResQMeshPalette,
     contentColor: Color,
     linkColor: Color,
     mentionPeerIdentities: Map<String, PeerIdentity>,

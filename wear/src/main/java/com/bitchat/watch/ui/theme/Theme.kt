@@ -6,15 +6,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.wear.compose.material3.ColorScheme
 import androidx.wear.compose.material3.MaterialTheme
 
-val BitchatWearColorScheme = ColorScheme(
-    primary = Color(0xFF32D74B),
-    onPrimary = Color.Black,
-    primaryContainer = Color(0xFF163D1D),
-    onPrimaryContainer = Color(0xFFB8F5C1),
-    secondary = Color(0xFF0A84FF),
-    onSecondary = Color.Black,
-    secondaryContainer = Color(0xFF082E54),
-    onSecondaryContainer = Color(0xFFC2E0FF),
+val ResQMeshWearColorScheme = ColorScheme(
+    primary = Color(0xFF1565C0),
+    onPrimary = Color.White,
+    primaryContainer = Color(0xFF004494),
+    onPrimaryContainer = Color(0xFFD1E4FF),
+    secondary = Color(0xFF00ACC1),
+    onSecondary = Color.White,
+    secondaryContainer = Color(0xFF004F54),
+    onSecondaryContainer = Color(0xFFB2EBF2),
     tertiary = Color(0xFFFF9F0A),
     onTertiary = Color.Black,
     background = Color(0xFF000000),
@@ -26,16 +26,16 @@ val BitchatWearColorScheme = ColorScheme(
     onSurfaceVariant = Color(0xFF9AA69A),
     outline = Color(0xFF2A3A2A),
     outlineVariant = Color(0xFF1C271C),
-    error = Color(0xFFFF453A),
-    onError = Color.Black,
+    error = Color(0xFFD32F2F),
+    onError = Color.White,
 )
 
 @Composable
-fun BitchatWearTheme(content: @Composable () -> Unit) {
-    CompositionLocalProvider(LocalBitchatPalette provides DarkBitchatPalette) {
+fun ResQMeshWearTheme(content: @Composable () -> Unit) {
+    CompositionLocalProvider(LocalResQMeshPalette provides DarkResQMeshPalette) {
         MaterialTheme(
-            colorScheme = BitchatWearColorScheme,
-            typography = BitchatWearTypography,
+            colorScheme = ResQMeshWearColorScheme,
+            typography = ResQMeshWearTypography,
             content = content
         )
     }

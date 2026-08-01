@@ -18,7 +18,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material3.Icon
 import androidx.wear.compose.material3.MaterialTheme
-import com.bitchat.watch.ui.theme.LocalBitchatPalette
+import com.bitchat.watch.ui.theme.LocalResQMeshPalette
 
 enum class NoiseSessionUiState { Idle, Handshaking, Established }
 
@@ -33,7 +33,7 @@ fun NoiseLockIcon(
     modifier: Modifier = Modifier,
     size: androidx.compose.ui.unit.Dp = 13.dp
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val colorScheme = MaterialTheme.colorScheme
 
     val targetTint = when (state) {

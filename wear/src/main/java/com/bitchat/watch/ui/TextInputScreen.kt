@@ -40,7 +40,7 @@ import androidx.wear.compose.material3.IconButton
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
 import com.bitchat.watch.ui.theme.ChatVisualTokens
-import com.bitchat.watch.ui.theme.LocalBitchatPalette
+import com.bitchat.watch.ui.theme.LocalResQMeshPalette
 
 /**
  * Full-screen text input: field auto-focused so the watch IME (with its built-in dictation)
@@ -48,7 +48,7 @@ import com.bitchat.watch.ui.theme.LocalBitchatPalette
  */
 @Composable
 fun TextInputScreen(onSend: (String) -> Unit) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val context = androidx.compose.ui.platform.LocalContext.current
     var text by remember { mutableStateOf("") }
     val focusRequester = remember { FocusRequester() }

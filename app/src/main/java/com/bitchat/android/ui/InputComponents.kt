@@ -1,7 +1,7 @@
 package com.bitchat.android.ui
 
 import android.view.HapticFeedbackConstants
-import com.bitchat.android.ui.theme.BitchatFontFamily
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
 // [Goose] TODO: Replace inline file attachment stub with FilePickerButton abstraction that dispatches via FileShareDispatcher
 
 
@@ -77,9 +77,9 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import com.bitchat.android.ui.theme.BASE_FONT_SIZE
-import com.bitchat.android.ui.theme.BitchatPalette
-import com.bitchat.android.ui.theme.BitchatMotion
-import com.bitchat.android.ui.theme.LocalBitchatPalette
+import com.bitchat.android.ui.theme.ResQMeshPalette
+import com.bitchat.android.ui.theme.ResQMeshMotion
+import com.bitchat.android.ui.theme.LocalResQMeshPalette
 import com.bitchat.android.features.voice.normalizeAmplitudeSample
 import com.bitchat.android.features.voice.AudioWaveformExtractor
 import com.bitchat.android.ui.media.RealtimeScrollingWaveform
@@ -106,7 +106,7 @@ class SlashCommandVisualTransformation(
             builder.addStyle(
                 style = SpanStyle(
                     color = commandColor,
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontWeight = FontWeight.Medium,
                     background = commandBackground
                 ),
@@ -128,7 +128,7 @@ class SlashCommandVisualTransformation(
  */
 class MentionVisualTransformation(
     private val mentionPeerIdentities: Map<String, PeerIdentity>,
-    private val palette: BitchatPalette,
+    private val palette: ResQMeshPalette,
 ) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         val builder = AnnotatedString.Builder(text)
@@ -155,7 +155,7 @@ class MentionVisualTransformation(
             builder.addStyle(
                 style = SpanStyle(
                     color = mentionColor,
-                    fontFamily = BitchatFontFamily,
+                    fontFamily = ResQMeshFontFamily,
                     fontWeight = FontWeight.SemiBold,
                 ),
                 start = start,
@@ -165,7 +165,7 @@ class MentionVisualTransformation(
                 builder.addStyle(
                     style = SpanStyle(
                         color = mentionColor.copy(alpha = SUFFIX_ALPHA),
-                        fontFamily = BitchatFontFamily,
+                        fontFamily = ResQMeshFontFamily,
                         fontWeight = FontWeight.SemiBold,
                     ),
                     start = suffixStart,
@@ -261,7 +261,7 @@ internal fun ComposerActionSurface(
     contentDescription: String? = null,
     content: @Composable (tint: Color) -> Unit
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val colorScheme = MaterialTheme.colorScheme
     val accent = if (activeColor == Color.Unspecified) colorScheme.primary else activeColor
 
@@ -269,12 +269,12 @@ internal fun ComposerActionSurface(
         // A tint rather than a fill. A solid accent disc next to the text you are typing was the
         // loudest thing on the screen; at 20% it still reads as "armed" without competing.
         targetValue = if (isActive) accent.copy(alpha = 0.20f) else palette.inputButton,
-        animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
         label = "composerButtonContainer"
     )
     val tint by animateColorAsState(
         targetValue = if (isActive) accent else colorScheme.onSurfaceVariant,
-        animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
         label = "composerButtonTint"
     )
     // A small dip on press. Spring rather than tween so the release overshoots very slightly and
@@ -322,7 +322,7 @@ fun MessageInput(
     activePublicTalker: String? = null,
     modifier: Modifier = Modifier
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val colorScheme = MaterialTheme.colorScheme
     val isFocused = remember { mutableStateOf(false) }
     val hasText = value.text.isNotBlank()
@@ -381,12 +381,12 @@ fun MessageInput(
             isFocused.value -> palette.inputOutlineFocused
             else -> palette.inputOutline
         },
-        animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
         label = "composerBorder"
     )
     val borderWidth by animateDpAsState(
         targetValue = if (isRecording) 1.5.dp else 1.dp,
-        animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
         label = "composerBorderWidth"
     )
     // A barely-there lift on focus. While recording the pill turns into a neutral grey slab
@@ -397,7 +397,7 @@ fun MessageInput(
             else -> (if (isFocused.value) palette.inputSurfaceFocused else palette.inputSurface)
                 .copy(alpha = ComposerFillAlpha)
         },
-        animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
         label = "composerContainer"
     )
 
@@ -413,7 +413,7 @@ fun MessageInput(
                 // Grow smoothly as the field wraps to more lines rather than jumping a line at
                 // a time.
                 .animateContentSize(
-                    animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing)
+                    animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing)
                 )
                 .background(containerColor, ComposerShape)
                 .border(borderWidth, borderColor, ComposerShape),
@@ -433,7 +433,7 @@ fun MessageInput(
                     // type into.
                     textStyle = MaterialTheme.typography.bodyMedium.copy(
                         color = if (cashuToken == null) colorScheme.onSurface else Color.Transparent,
-                        fontFamily = BitchatFontFamily
+                        fontFamily = ResQMeshFontFamily
                     ),
                     cursorBrush = SolidColor(
                         if (isRecording || cashuToken != null) Color.Transparent else colorScheme.onSurface
@@ -483,7 +483,7 @@ fun MessageInput(
                 // every time a message is sent.
                 val placeholderAlpha by animateFloatAsState(
                     targetValue = if (value.text.isEmpty() && !isRecording) 1f else 0f,
-                    animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+                    animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
                     label = "placeholderAlpha"
                 )
                 if (placeholderAlpha > 0f) {
@@ -492,7 +492,7 @@ fun MessageInput(
                             selectedPrivatePeer == null && currentChannel == null && activePublicTalker != null
                         ) "$activePublicTalker is live" else stringResource(R.string.type_a_message_placeholder),
                         style = MaterialTheme.typography.bodyMedium.copy(
-                            fontFamily = BitchatFontFamily
+                            fontFamily = ResQMeshFontFamily
                         ),
                         color = palette.textTertiary,
                         maxLines = 1,
@@ -505,7 +505,7 @@ fun MessageInput(
                 // Recording visualiser, layered over the (empty) field.
                 val waveformAlpha by animateFloatAsState(
                     targetValue = if (isRecording) 1f else 0f,
-                    animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+                    animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
                     label = "waveformAlpha"
                 )
                 if (isRecording) {
@@ -526,7 +526,7 @@ fun MessageInput(
                         Text(
                             text = (if (isLiveRecording) "LIVE · " else "") +
                                 String.format("%02d:%02d", secs / 60, secs % 60),
-                            fontFamily = BitchatFontFamily,
+                            fontFamily = ResQMeshFontFamily,
                             color = colorScheme.error,
                             fontSize = (BASE_FONT_SIZE - 4).sp
                         )
@@ -552,25 +552,25 @@ fun MessageInput(
                 targetState = hasText,
                 transitionSpec = {
                     (
-                        fadeIn(tween(BitchatMotion.STANDARD_MS)) +
+                        fadeIn(tween(ResQMeshMotion.STANDARD_MS)) +
                             scaleIn(
                                 initialScale = 0.7f,
                                 animationSpec = tween(
-                                    BitchatMotion.STANDARD_MS,
+                                    ResQMeshMotion.STANDARD_MS,
                                     easing = FastOutSlowInEasing
                                 )
                             )
                     ).togetherWith(
-                        fadeOut(tween(BitchatMotion.QUICK_MS)) +
+                        fadeOut(tween(ResQMeshMotion.QUICK_MS)) +
                             scaleOut(
                                 targetScale = 0.7f,
                                 animationSpec = tween(
-                                    BitchatMotion.QUICK_MS,
+                                    ResQMeshMotion.QUICK_MS,
                                     easing = FastOutSlowInEasing
                                 )
                             )
                     ) using SizeTransform(clip = false) { _, _ ->
-                        tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing)
+                        tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing)
                     }
                 },
                 modifier = Modifier.padding(end = 6.dp, bottom = 6.dp),
@@ -588,13 +588,13 @@ fun MessageInput(
                             // only thing that can be released.
                             AnimatedVisibility(
                                 visible = !isRecording,
-                                enter = fadeIn(tween(BitchatMotion.STANDARD_MS)) +
+                                enter = fadeIn(tween(ResQMeshMotion.STANDARD_MS)) +
                                     expandHorizontally(
-                                        tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing)
+                                        tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing)
                                     ),
-                                exit = fadeOut(tween(BitchatMotion.QUICK_MS)) +
+                                exit = fadeOut(tween(ResQMeshMotion.QUICK_MS)) +
                                     shrinkHorizontally(
-                                        tween(BitchatMotion.QUICK_MS, easing = FastOutSlowInEasing)
+                                        tween(ResQMeshMotion.QUICK_MS, easing = FastOutSlowInEasing)
                                     )
                             ) {
                                 ImagePickerButton(
@@ -613,13 +613,13 @@ fun MessageInput(
                             // leans toward an approaching finger and snaps red on hover.
                             AnimatedVisibility(
                                 visible = isRecording,
-                                enter = fadeIn(tween(BitchatMotion.STANDARD_MS)) +
+                                enter = fadeIn(tween(ResQMeshMotion.STANDARD_MS)) +
                                     expandHorizontally(
-                                        tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing)
+                                        tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing)
                                     ),
-                                exit = fadeOut(tween(BitchatMotion.QUICK_MS)) +
+                                exit = fadeOut(tween(ResQMeshMotion.QUICK_MS)) +
                                     shrinkHorizontally(
-                                        tween(BitchatMotion.QUICK_MS, easing = FastOutSlowInEasing)
+                                        tween(ResQMeshMotion.QUICK_MS, easing = FastOutSlowInEasing)
                                     )
                             ) {
                                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -714,7 +714,7 @@ private fun RecordingCancelButton(
     onBounds: (Rect) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val colorScheme = MaterialTheme.colorScheme
 
     val pullAnim by animateOffsetAsState(
@@ -781,7 +781,7 @@ private fun SendButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val colorScheme = MaterialTheme.colorScheme
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
@@ -836,7 +836,7 @@ fun CommandSuggestionItem(
     onClick: () -> Unit
 ) {
     val colorScheme = MaterialTheme.colorScheme
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
 
     Row(
         modifier = Modifier
@@ -857,7 +857,7 @@ fun CommandSuggestionItem(
         Text(
             text = allCommands.joinToString(", "),
             style = MaterialTheme.typography.bodySmall.copy(
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 fontWeight = FontWeight.Medium
             ),
             color = colorScheme.primary,
@@ -869,7 +869,7 @@ fun CommandSuggestionItem(
             Text(
                 text = syntax,
                 style = MaterialTheme.typography.bodySmall.copy(
-                    fontFamily = BitchatFontFamily
+                    fontFamily = ResQMeshFontFamily
                 ),
                 color = colorScheme.onSurfaceVariant,
                 fontSize = (BASE_FONT_SIZE - 4).sp
@@ -880,7 +880,7 @@ fun CommandSuggestionItem(
         Text(
             text = suggestion.description,
             style = MaterialTheme.typography.bodySmall.copy(
-                fontFamily = BitchatFontFamily
+                fontFamily = ResQMeshFontFamily
             ),
             color = palette.textTertiary,
             fontSize = (BASE_FONT_SIZE - 4).sp,
@@ -899,14 +899,14 @@ fun MentionSuggestionsBox(
     modifier: Modifier = Modifier
 ) {
     val colorScheme = MaterialTheme.colorScheme
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
 
     LazyColumn(
         modifier = modifier
             .heightIn(max = MentionSuggestionsMaxHeight)
             .animateContentSize(
                 animationSpec = tween(
-                    BitchatMotion.STANDARD_MS,
+                    ResQMeshMotion.STANDARD_MS,
                     easing = FastOutSlowInEasing
                 )
             )
@@ -929,14 +929,14 @@ fun MentionSuggestionsBox(
                 onClick = { onSuggestionClick(suggestion) },
                 modifier = Modifier.animateItem(
                     fadeInSpec = tween(
-                        BitchatMotion.STANDARD_MS,
+                        ResQMeshMotion.STANDARD_MS,
                         easing = FastOutSlowInEasing
                     ),
                     placementSpec = tween(
-                        BitchatMotion.STANDARD_MS,
+                        ResQMeshMotion.STANDARD_MS,
                         easing = FastOutSlowInEasing
                     ),
-                    fadeOutSpec = tween(BitchatMotion.QUICK_MS)
+                    fadeOutSpec = tween(ResQMeshMotion.QUICK_MS)
                 )
             )
         }
@@ -950,7 +950,7 @@ fun MentionSuggestionItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
     val pressedBackground by animateColorAsState(
@@ -959,7 +959,7 @@ fun MentionSuggestionItem(
         } else {
             Color.Transparent
         },
-        animationSpec = tween(BitchatMotion.QUICK_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.QUICK_MS, easing = FastOutSlowInEasing),
         label = "mentionSuggestionPressedBackground"
     )
     val pressedScale by animateFloatAsState(
@@ -988,7 +988,7 @@ fun MentionSuggestionItem(
         Text(
             text = stringResource(R.string.mention_suggestion_at, suggestion),
             style = MaterialTheme.typography.bodySmall.copy(
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 fontWeight = FontWeight.SemiBold
             ),
             color = userColor,
@@ -1003,7 +1003,7 @@ fun MentionSuggestionItem(
         Text(
             text = stringResource(R.string.mention),
             style = MaterialTheme.typography.bodySmall.copy(
-                fontFamily = BitchatFontFamily
+                fontFamily = ResQMeshFontFamily
             ),
             color = palette.textTertiary,
             fontSize = (BASE_FONT_SIZE - 4).sp,

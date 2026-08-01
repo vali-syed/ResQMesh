@@ -21,62 +21,62 @@ val MessageSenderTextStyle = ChatVisualTokens.SenderStyle
 // Typography matching the iOS monospace design - using BASE_FONT_SIZE for consistency
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = (BASE_FONT_SIZE + 1).sp,
         lineHeight = (BASE_FONT_SIZE + 7).sp
     ),
     bodyMedium = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = BASE_FONT_SIZE.sp,
         lineHeight = (BASE_FONT_SIZE + 6).sp
     ),
     bodySmall = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = (BASE_FONT_SIZE - 3).sp,
         lineHeight = (BASE_FONT_SIZE + 1).sp
     ),
     headlineSmall = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Medium,
         fontSize = (BASE_FONT_SIZE + 3).sp,
         lineHeight = (BASE_FONT_SIZE + 9).sp
     ),
     // Previously unset, which leaked the Roboto default into onboarding + sheet titles.
     headlineLarge = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Bold,
         fontSize = (BASE_FONT_SIZE + 13).sp,
         lineHeight = (BASE_FONT_SIZE + 21).sp
     ),
     titleLarge = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Medium,
         fontSize = (BASE_FONT_SIZE + 5).sp,
         lineHeight = (BASE_FONT_SIZE + 13).sp
     ),
     titleMedium = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Medium,
         fontSize = (BASE_FONT_SIZE + 1).sp,
         lineHeight = (BASE_FONT_SIZE + 7).sp
     ),
     labelLarge = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Medium,
         fontSize = (BASE_FONT_SIZE - 1).sp,
         lineHeight = (BASE_FONT_SIZE + 5).sp
     ),
     labelMedium = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Medium,
         fontSize = (BASE_FONT_SIZE - 2).sp,
         lineHeight = (BASE_FONT_SIZE + 3).sp
     ),
     labelSmall = TextStyle(
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = (BASE_FONT_SIZE - 4).sp,
         lineHeight = (BASE_FONT_SIZE + 1).sp

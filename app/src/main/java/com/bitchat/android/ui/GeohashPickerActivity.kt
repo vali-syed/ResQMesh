@@ -38,8 +38,8 @@ import com.bitchat.android.ui.globe.GlobeState
 import com.bitchat.android.ui.globe.GlobeView
 import com.bitchat.android.ui.globe.LandData
 import com.bitchat.android.ui.theme.BASE_FONT_SIZE
-import com.bitchat.android.ui.theme.BitchatFontFamily
-import com.bitchat.android.ui.theme.BitchatTheme
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
+import com.bitchat.android.ui.theme.ResQMeshTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -87,7 +87,7 @@ class GeohashPickerActivity : OrientationAwareActivity() {
         val targetLon = initLon
 
         setContent {
-            BitchatTheme {
+            ResQMeshTheme {
                 val context = LocalContext.current
                 val scope = rememberCoroutineScope()
 
@@ -187,7 +187,7 @@ class GeohashPickerActivity : OrientationAwareActivity() {
                             text = stringResource(R.string.pan_zoom_instruction),
                             fontSize = 12.sp,
                             textAlign = TextAlign.Center,
-                            fontFamily = BitchatFontFamily,
+                            fontFamily = ResQMeshFontFamily,
                             color = MaterialTheme.colorScheme.onSurface,
                             modifier = Modifier
                                 .padding(horizontal = 14.dp, vertical = 10.dp)
@@ -217,7 +217,7 @@ class GeohashPickerActivity : OrientationAwareActivity() {
                                 Text(
                                     text = if (globeState.selectedGeohash.isNotEmpty()) "#${globeState.selectedGeohash}" else "select location",
                                     fontSize = BASE_FONT_SIZE.sp,
-                                    fontFamily = BitchatFontFamily,
+                                    fontFamily = ResQMeshFontFamily,
                                     fontWeight = FontWeight.Medium,
                                     color = MaterialTheme.colorScheme.onSurface
                                 )
@@ -225,7 +225,7 @@ class GeohashPickerActivity : OrientationAwareActivity() {
                                     Text(
                                         text = "${levelForLength(globeState.precision).displayName} • ${coverageString(globeState.precision)}",
                                         fontSize = (BASE_FONT_SIZE - 4).sp,
-                                        fontFamily = BitchatFontFamily,
+                                        fontFamily = ResQMeshFontFamily,
                                         color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
                                 }
@@ -280,7 +280,7 @@ class GeohashPickerActivity : OrientationAwareActivity() {
                                 Text(
                                     text = stringResource(R.string.select),
                                     fontSize = (BASE_FONT_SIZE - 2).sp,
-                                    fontFamily = BitchatFontFamily
+                                    fontFamily = ResQMeshFontFamily
                                 )
                             }
                         }

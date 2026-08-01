@@ -41,11 +41,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.bitchat.android.ui.theme.BitchatFontFamily
+import com.bitchat.android.ui.theme.ResQMeshFontFamily
 import com.bitchat.android.R
 import com.bitchat.android.core.ui.icon.BitChatIcon
-import com.bitchat.android.ui.theme.BitchatMotion
-import com.bitchat.android.ui.theme.LocalBitchatPalette
+import com.bitchat.android.ui.theme.ResQMeshMotion
+import com.bitchat.android.ui.theme.LocalResQMeshPalette
 
 /**
  * Building blocks for the redesigned About sheet.
@@ -97,10 +97,10 @@ internal fun AboutSectionLabel(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     Text(
         text = text.uppercase(),
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontSize = 11.sp,
         fontWeight = FontWeight.Medium,
         letterSpacing = 0.8.sp,
@@ -140,7 +140,7 @@ internal fun SheetIconSectionHeader(
             Text(
                 text = title,
                 fontSize = 17.sp,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 fontWeight = FontWeight.SemiBold,
                 color = colorScheme.primary
             )
@@ -150,7 +150,7 @@ internal fun SheetIconSectionHeader(
                 text = subtitle,
                 fontSize = 12.sp,
                 lineHeight = 17.sp,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 color = colorScheme.onSurfaceVariant
             )
         }
@@ -177,7 +177,7 @@ internal fun AboutHero(
     modifier: Modifier = Modifier
 ) {
     val colorScheme = MaterialTheme.colorScheme
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
 
     Column(
         modifier = modifier
@@ -196,7 +196,7 @@ internal fun AboutHero(
 
         Text(
             text = stringResource(R.string.app_name),
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             fontWeight = FontWeight.Bold,
             fontSize = 40.sp,
             // Monospace at display size leaves too much air between glyphs; pull it in slightly
@@ -209,7 +209,7 @@ internal fun AboutHero(
 
         Text(
             text = stringResource(R.string.about_tagline),
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             fontSize = 16.sp,
             color = colorScheme.onSurfaceVariant
         )
@@ -218,7 +218,7 @@ internal fun AboutHero(
 
         Text(
             text = stringResource(R.string.version_prefix, versionName),
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             fontSize = 12.sp,
             color = palette.textTertiary
         )
@@ -244,7 +244,7 @@ internal fun AboutTabBar(
     val tabWidth = rowWidth / 2
     val indicatorOffset by animateDpAsState(
         targetValue = if (selected == AboutTab.Info) 0.dp else tabWidth,
-        animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
         label = "aboutTabIndicator"
     )
 
@@ -297,7 +297,7 @@ private fun AboutTabLabel(
 
     val color by animateColorAsState(
         targetValue = if (isSelected) colorScheme.primary else colorScheme.onSurfaceVariant,
-        animationSpec = tween(BitchatMotion.QUICK_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.QUICK_MS, easing = FastOutSlowInEasing),
         label = "aboutTabLabelColor"
     )
 
@@ -309,7 +309,7 @@ private fun AboutTabLabel(
     ) {
         Text(
             text = text.uppercase(),
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             fontSize = 13.sp,
             fontWeight = FontWeight.Medium,
             letterSpacing = 0.8.sp,
@@ -343,7 +343,7 @@ private fun AboutInstructionRow(
         )
         Text(
             text = text,
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             fontSize = 14.sp,
             lineHeight = 20.sp,
             color = colorScheme.onSurface
@@ -361,7 +361,7 @@ internal fun AboutHowToUseSection(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxWidth()) {
         Text(
             text = stringResource(R.string.about_how_to_use_heading),
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             fontSize = 13.sp,
             fontWeight = FontWeight.Medium,
             color = colorScheme.primary,
@@ -468,7 +468,7 @@ private fun AboutFeatureRow(
         Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
             Text(
                 text = title,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Medium,
                 lineHeight = 20.sp,
@@ -476,7 +476,7 @@ private fun AboutFeatureRow(
             )
             Text(
                 text = subtitle,
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 fontSize = 12.sp,
                 lineHeight = 17.sp,
                 color = colorScheme.onSurfaceVariant
@@ -501,7 +501,7 @@ internal fun BitchatBadge(
     ) {
         Text(
             text = text.uppercase(),
-            fontFamily = BitchatFontFamily,
+            fontFamily = ResQMeshFontFamily,
             fontSize = 10.sp,
             fontWeight = FontWeight.Bold,
             letterSpacing = 0.5.sp,
@@ -523,10 +523,10 @@ internal fun SheetSectionLabel(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     Text(
         text = text.uppercase(),
-        fontFamily = BitchatFontFamily,
+        fontFamily = ResQMeshFontFamily,
         fontSize = 11.sp,
         fontWeight = FontWeight.Medium,
         letterSpacing = 0.8.sp,
@@ -594,7 +594,7 @@ internal fun SheetDestructiveButton(
         Box(contentAlignment = Alignment.Center) {
             Text(
                 text = text.uppercase(),
-                fontFamily = BitchatFontFamily,
+                fontFamily = ResQMeshFontFamily,
                 fontSize = 11.sp,
                 fontWeight = FontWeight.Medium,
                 letterSpacing = 0.8.sp,

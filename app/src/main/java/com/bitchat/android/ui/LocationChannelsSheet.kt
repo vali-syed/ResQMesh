@@ -72,8 +72,8 @@ import com.bitchat.android.geohash.LocationChannelManager
 import com.bitchat.android.net.ArtiTorManager
 import com.bitchat.android.net.TorMode
 import com.bitchat.android.net.TorPreferenceManager
-import com.bitchat.android.ui.theme.BitchatMotion
-import com.bitchat.android.ui.theme.LocalBitchatPalette
+import com.bitchat.android.ui.theme.ResQMeshMotion
+import com.bitchat.android.ui.theme.LocalResQMeshPalette
 import com.bitchat.android.wifiaware.WifiAwareController
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
@@ -160,7 +160,7 @@ fun LocationChannelsSheet(
     }
     val topBarAlpha by animateFloatAsState(
         targetValue = if (isScrolled) 0.98f else 0f,
-        animationSpec = tween(BitchatMotion.EMPHASIZED_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.EMPHASIZED_MS, easing = FastOutSlowInEasing),
         label = "topBarAlpha"
     )
 
@@ -176,7 +176,7 @@ fun LocationChannelsSheet(
     }
 
     val colorScheme = MaterialTheme.colorScheme
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val standardGreen = colorScheme.primary
     val standardBlue = colorScheme.secondary
 
@@ -522,11 +522,11 @@ fun LocationChannelsSheet(
 
                             AnimatedVisibility(
                                 visible = customError != null,
-                                enter = fadeIn(tween(BitchatMotion.STANDARD_MS)) +
+                                enter = fadeIn(tween(ResQMeshMotion.STANDARD_MS)) +
                                     expandVertically(
                                         tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing)
                                     ),
-                                exit = fadeOut(tween(BitchatMotion.QUICK_MS)) +
+                                exit = fadeOut(tween(ResQMeshMotion.QUICK_MS)) +
                                     shrinkVertically(
                                         tween(BitchatMotion.QUICK_MS, easing = FastOutSlowInEasing)
                                     )
@@ -878,7 +878,7 @@ private fun CustomGeohashRow(
     onTeleport: () -> Unit
 ) {
     val colorScheme = MaterialTheme.colorScheme
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val density = LocalDensity.current
     val imeInsets = WindowInsets.ime
     val coroutineScope = rememberCoroutineScope()
@@ -889,7 +889,7 @@ private fun CustomGeohashRow(
     // and its container makes that the moment the row confirms the input is usable.
     val teleportColor by animateColorAsState(
         targetValue = if (isValid) colorScheme.primary else palette.textTertiary,
-        animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
         label = "teleportLabel"
     )
     val teleportContainer by animateColorAsState(
@@ -898,7 +898,7 @@ private fun CustomGeohashRow(
         } else {
             colorScheme.surfaceVariant
         },
-        animationSpec = tween(BitchatMotion.STANDARD_MS, easing = FastOutSlowInEasing),
+        animationSpec = tween(ResQMeshMotion.STANDARD_MS, easing = FastOutSlowInEasing),
         label = "teleportContainer"
     )
     val teleportInteraction = remember { MutableInteractionSource() }
@@ -958,7 +958,7 @@ private fun CustomGeohashRow(
                                 .first { it > 0 }
                         }
                         bringIntoViewRequester.bringIntoView()
-                        delay(BitchatMotion.STANDARD_MS.toLong())
+                        delay(ResQMeshMotion.STANDARD_MS.toLong())
                         bringIntoViewRequester.bringIntoView()
                     }
                 },
@@ -1023,7 +1023,7 @@ private fun ChannelSettingsToggleRow(
     statusIndicator: (@Composable () -> Unit)? = null
 ) {
     val colorScheme = MaterialTheme.colorScheme
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
 
     Row(
         modifier = Modifier

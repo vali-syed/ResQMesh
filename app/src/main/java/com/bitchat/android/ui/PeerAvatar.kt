@@ -20,7 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.bitchat.android.R
 import com.bitchat.android.ui.theme.BitchatFontFamily
-import com.bitchat.android.ui.theme.LocalBitchatPalette
+import com.bitchat.android.ui.theme.LocalResQMeshPalette
 
 internal val PeerAvatarBadgeSize = 18.dp
 private val PeerAvatarStarSize = 16.dp
@@ -36,7 +36,7 @@ internal fun PeerAvatar(
     isVerified: Boolean = false,
     badge: (@Composable () -> Unit)? = null
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val colorScheme = MaterialTheme.colorScheme
 
     Box(

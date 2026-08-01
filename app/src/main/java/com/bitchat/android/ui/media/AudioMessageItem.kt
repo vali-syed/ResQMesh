@@ -23,7 +23,7 @@ import com.bitchat.android.core.ui.component.text.AnnotatedClickableText
 import com.bitchat.android.mesh.MeshService
 import com.bitchat.android.model.BitchatMessage
 import androidx.compose.material3.ColorScheme
-import com.bitchat.android.ui.theme.LocalBitchatPalette
+import com.bitchat.android.ui.theme.LocalResQMeshPalette
 import java.text.SimpleDateFormat
 import androidx.compose.ui.platform.LocalContext
 
@@ -40,7 +40,7 @@ fun AudioMessageItem(
     modifier: Modifier = Modifier,
     showSender: Boolean = true
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     val context = LocalContext.current
     val liveMessageIDs by com.bitchat.android.features.voice.LiveVoiceManager
         .getInstance(context).liveMessageIDs.collectAsState()

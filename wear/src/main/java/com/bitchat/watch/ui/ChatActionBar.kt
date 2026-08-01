@@ -43,9 +43,9 @@ import androidx.wear.compose.material3.Icon
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
 import com.bitchat.watch.ui.media.WaveformBars
-import com.bitchat.watch.ui.theme.BitchatMotion
+import com.bitchat.watch.ui.theme.ResQMeshMotion
 import com.bitchat.watch.ui.theme.ChatVisualTokens
-import com.bitchat.watch.ui.theme.LocalBitchatPalette
+import com.bitchat.watch.ui.theme.LocalResQMeshPalette
 
 /**
  * Native Wear bottom action bar (designed for the ScreenScaffold `edgeButton` slot): a keyboard
@@ -61,7 +61,7 @@ fun ChatActionBar(
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
 
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -152,7 +152,7 @@ fun VoiceRecordOverlay(
     magnetPull: Offset,
     onCancelBounds: (androidx.compose.ui.geometry.Rect) -> Unit
 ) {
-    val palette = LocalBitchatPalette.current
+    val palette = LocalResQMeshPalette.current
     // The cancel morph, choreographed for feel:
     // - color flows green→red CONTINUOUSLY as the finger approaches (finger-driven, so it
     //   is perfectly fluid), completing to full red on activation
@@ -182,8 +182,8 @@ fun VoiceRecordOverlay(
     )
     AnimatedVisibility(
         visible = voice.recording,
-        enter = fadeIn(tween(BitchatMotion.EMPHASIZED_MS)),
-        exit = fadeOut(tween(BitchatMotion.EMPHASIZED_MS))
+        enter = fadeIn(tween(ResQMeshMotion.EMPHASIZED_MS)),
+        exit = fadeOut(tween(ResQMeshMotion.EMPHASIZED_MS))
     ) {
         Column(
             modifier = Modifier
@@ -216,7 +216,7 @@ fun VoiceRecordOverlay(
             ) {
                 androidx.compose.animation.Crossfade(
                     targetState = hoveringCancel,
-                    animationSpec = tween(BitchatMotion.STANDARD_MS),
+                    animationSpec = tween(ResQMeshMotion.STANDARD_MS),
                     label = "cancelIcon"
                 ) { cancel ->
                     Icon(
