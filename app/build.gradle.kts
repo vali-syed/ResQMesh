@@ -37,6 +37,11 @@ android {
             "GITHUB_RELEASE_CERT_SHA256",
             "\"$normalizedGithubReleaseCertSha256\""
         )
+        buildConfigField(
+            "String",
+            "RESCUE_BACKEND_URL",
+            "\"\"" // Placeholder for your friend's backend
+        )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

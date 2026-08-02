@@ -210,7 +210,7 @@ fun formatTextMessageBody(
 
     appendIOSFormattedContent(
         builder = builder,
-        content = message.content,
+        rawContent = message.content,
         currentUserNickname = currentUserNickname,
         palette = palette,
         contentColor = contentColor,
@@ -427,13 +427,20 @@ internal fun isUnannouncedNickname(displayName: String): Boolean {
  */
 private fun appendIOSFormattedContent(
     builder: AnnotatedString.Builder,
-    content: String,
+    rawContent: String,
     currentUserNickname: String,
     palette: ResQMeshPalette,
     contentColor: Color,
     linkColor: Color,
     mentionPeerIdentities: Map<String, PeerIdentity>,
 ) {
+    // Hide machine-readable emergency data from the UI
+    val content = if (rawContent.contains("\n[DATA]")) {
+        rawContent.substringBefore("\n[DATA]")
+    } else {
+        rawContent
+    }
+
     val hashtagPattern = "#([a-zA-Z0-9_]+)".toRegex()
     
     val hashtagMatches = hashtagPattern.findAll(content).toList()

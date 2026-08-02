@@ -17,6 +17,7 @@ import com.google.gson.JsonSyntaxException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 
@@ -32,6 +33,8 @@ class LocationChannelManager private constructor(private val context: Context) {
         @Volatile
         private var INSTANCE: LocationChannelManager? = null
         
+        private const val FORCED_TOKEN = -1L
+
         fun getInstance(context: Context): LocationChannelManager {
             return INSTANCE ?: synchronized(this) {
                 INSTANCE ?: LocationChannelManager(context.applicationContext).also { INSTANCE = it }
@@ -98,6 +101,9 @@ class LocationChannelManager private constructor(private val context: Context) {
 
     private val _locationNames = MutableStateFlow<Map<GeohashChannelLevel, String>>(emptyMap())
     val locationNames: StateFlow<Map<GeohashChannelLevel, String>> = _locationNames
+    
+    private val _lastLocation = MutableStateFlow<Location?>(null)
+    val lastLocation: StateFlow<Location?> = _lastLocation.asStateFlow()
     
     private val _isLoadingLocation = MutableStateFlow(false)
     val isLoadingLocation: StateFlow<Boolean> = _isLoadingLocation
@@ -355,6 +361,34 @@ class LocationChannelManager private constructor(private val context: Context) {
 
     // MARK: - Location Operations
 
+    /**
+     * Request a one-shot location update regardless of the internal privacy gate.
+     * Still respects Android system permissions.
+     */
+    fun forceRequestOneShotLocation() {
+        if (syncPermissionState() != PermissionState.AUTHORIZED) {
+            Log.w(TAG, "No system location permission for forced one-shot request")
+            return
+        }
+
+        _isLoadingLocation.value = true
+        locationProvider.getLastKnownLocation { cached ->
+            if (cached != null) {
+                computeChannels(cached, FORCED_TOKEN)
+                reverseGeocodeIfNeeded(cached, FORCED_TOKEN)
+                _isLoadingLocation.value = false
+            } else {
+                locationProvider.requestFreshLocation { fresh ->
+                    if (fresh != null) {
+                        computeChannels(fresh, FORCED_TOKEN)
+                        reverseGeocodeIfNeeded(fresh, FORCED_TOKEN)
+                    }
+                    _isLoadingLocation.value = false
+                }
+            }
+        }
+    }
+
     private fun requestOneShotLocation() {
         if (!isLocationServicesEnabled() ||
             syncPermissionState() != PermissionState.AUTHORIZED
@@ -396,6 +430,7 @@ class LocationChannelManager private constructor(private val context: Context) {
         LiveLocationPrivacyGate.runIfAllowed(token) {
             if (!_systemLocationEnabled.value || !hasRuntimeLocationPermission()) return@runIfAllowed
             _isLoadingLocation.value = false
+            _lastLocation.value = location
             computeChannels(location, token)
             reverseGeocodeIfNeeded(location, token)
         }
@@ -433,6 +468,9 @@ class LocationChannelManager private constructor(private val context: Context) {
     }
 
     private fun canUseLiveLocation(token: Long): Boolean {
+        if (token == FORCED_TOKEN) {
+            return _systemLocationEnabled.value && hasRuntimeLocationPermission()
+        }
         return LiveLocationPrivacyGate.accepts(token) &&
             _systemLocationEnabled.value &&
             hasRuntimeLocationPermission()

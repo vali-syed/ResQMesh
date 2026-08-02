@@ -1839,7 +1839,7 @@ fun PrivateChatSheet(
                     var messageText by remember(peerID) {
                         mutableStateOf(
                             androidx.compose.ui.text.input.TextFieldValue(
-                                viewModel.conversationDraft(peerID)
+                                viewModel.getDraft(peerID)
                             )
                         )
                     }

@@ -44,6 +44,15 @@ class MeshDelegateHandler(
             // Trigger haptic feedback
             onHapticFeedback()
 
+            // Rescue Bridge: Detect and forward SOS data packets
+            if (message.content.contains("[DATA]{")) {
+                val json = message.content.substringAfter("[DATA]")
+                val packet = com.bitchat.android.model.EmergencyPacket.fromJson(json)
+                if (packet != null) {
+                    com.bitchat.android.net.RescueBridge.forwardToBackend(packet)
+                }
+            }
+
             if (message.isPrivate) {
                 if (message.sender == "system") {
                     // System notices (e.g. "x favorited you"): no unread badge, read receipt or push

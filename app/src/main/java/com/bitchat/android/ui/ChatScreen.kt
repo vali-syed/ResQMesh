@@ -102,8 +102,8 @@ fun ChatScreen(viewModel: ChatViewModel) {
     LaunchedEffect(selectedPrivatePeer) {
         messageText = TextFieldValue(
             selectedPrivatePeer
-                ?.let(viewModel::conversationDraft)
-                .orEmpty()
+                ?.let { viewModel.getDraft(it) }
+                ?: ""
         )
     }
 
@@ -899,7 +899,7 @@ private fun ChatDialogs(
             onDismiss = onMeshPeerListDismiss,
             onShowVerification = {
                 onMeshPeerListDismiss()
-                viewModel.showVerificationSheet(fromSidebar = true)
+                viewModel.showVerificationSheet()
             }
         )
     }
